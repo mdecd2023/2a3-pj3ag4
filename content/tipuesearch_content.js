@@ -1,1 +1,1 @@
-var tipuesearch = {"pages": [{'title': 'About', 'text': 'cmsimde_site', 'tags': '', 'url': 'About.html'}]};
+var tipuesearch = {"pages": [{'title': 'About', 'text': 'pj3第四組 \n 組長：洪偉陞 41023146 \n 組員：施建菖 41023143 紀閔翔 41023147 夏進源 41023148 \n 呂佳柔 41023104 王啟騰 41023112 李承翰 41023121 林建維 41023134 \n 網頁: https://mdecd2023.github.io/2a3-pj3ag4/content/index.html \xa0 \n 倉儲: https://github.com/mdecd2023/2a3-pj3ag4 \xa0', 'tags': '', 'url': 'About.html'}]};
