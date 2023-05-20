@@ -1,0 +1,144 @@
+\documentclass[14pt,a4paper]{report}  %紙張設定
+\usepackage{xeCJK}%中文字體模組
+\setCJKmainfont{標楷體} %設定中文字體
+%\setCJKmainfont{MoeStandardKai.ttf}
+\newfontfamily\sectionef{Times New Roman}%設定英文字體
+%\newfontfamily\sectionef{Nimbus Roman}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb}%數學公式、符號
+\usepackage{amsfonts} %數學簍空的英文字
+\usepackage{graphicx, subfigure}%圖形
+\usepackage{fontawesome5} %引用icon
+\usepackage{type1cm} %調整字體絕對大小
+\usepackage{textpos} %設定文字絕對位置
+\usepackage[top=2.5truecm,bottom=2.5truecm,
+left=3truecm,right=2.5truecm]{geometry}
+\usepackage{titlesec} %目錄標題設定模組
+\usepackage{titletoc} %目錄內容設定模組
+\usepackage{textcomp} %表格設定模組
+\usepackage{multirow} %合併行
+%\usepackage{multicol} %合併欄
+\usepackage{CJK} %中文模組
+\usepackage{CJKnumb} %中文數字模組
+\usepackage{wallpaper} %浮水印
+\usepackage{listings} %引用程式碼
+\usepackage{hyperref} %引用url連結
+\usepackage{setspace}
+\usepackage{lscape}%設定橫式
+\lstset{language=Python, %設定語言
+		basicstyle=\fontsize{10pt}{2pt}\selectfont, %設定程式內文字體大小
+		frame=lines,	%設定程式框架為線
+}
+%\usepackage{subcaption}%副圖標
+\graphicspath{{./../images/}} %圖片預設讀取路徑
+\usepackage{indentfirst} %設定開頭縮排模組
+\renewcommand{\figurename}{\Large 圖.} %更改圖片標題名稱
+\renewcommand{\tablename}{\Large 表.}
+\renewcommand{\lstlistingname}{\Large 程式.} %設定程式標示名稱
+\hoffset=-5mm %調整左右邊界
+\voffset=-8mm %調整上下邊界
+\setlength{\parindent}{3em}%設定首行行距縮排
+\usepackage{appendix} %附錄
+\usepackage{diagbox}%引用表格
+\usepackage{multirow}%表格置中
+%\usepackage{number line}
+%=------------------更改標題內容----------------------=%
+\titleformat{\chapter}[hang]{\center\sectionef\fontsize{20pt}{1pt}\bfseries}{\LARGE 第\CJKnumber{\thechapter}章}{1em}{}[]
+\titleformat{\section}[hang]{\sectionef\fontsize{18pt}{2.5pt}\bfseries}{{\thesection}}{0.5em}{}[]
+\titleformat{\subsection}[hang]{\sectionef\fontsize{18pt}{2.5pt}\bfseries}{{\thesubsection}}{1em}{}[]
+%=------------------更改目錄內容-----------------------=%
+\titlecontents{chapter}[11mm]{}{\sectionef\fontsize{18pt}{2.5pt}\bfseries\makebox[3.5em][l]
+{第\CJKnumber{\thecontentslabel}章}}{}{\titlerule*[0.7pc]{.}\contentspage}
+\titlecontents{section}[18mm]{}{\sectionef\LARGE\makebox[1.5em][l]
+{\thecontentslabel}}{}{\titlerule*[0.7pc]{.}\contentspage}
+\titlecontents{subsection}[4em]{}{\sectionef\Large\makebox[2.5em][l]{{\thecontentslabel}}}{}{\titlerule*[0.7pc]{.}\contentspage}
+%=----------------------章節間距----------------------=%
+\titlespacing*{\chapter} {0pt}{0pt}{18pt}
+\titlespacing*{\section} {0pt}{12pt}{6pt}
+\titlespacing*{\subsection} {0pt}{6pt}{6pt}
+%=----------------------標題-------------------------=%             
+\begin{document} %文件
+\sectionef %設定英文字體啟用
+\vspace{12em}
+\begin{titlepage}%開頭
+\begin{center}   %標題  
+\makebox[1.5\width][s] %[s] 代表 Stretch the interword space in text across the entire width
+{\fontsize{24pt}{2.5pt}國立虎尾科技大學}\\[18pt]
+\makebox[1.5\width][s]
+{\fontsize{24pt}{2.5pt}機械設計工程系}\\[18pt]
+\sectionef\fontsize{24pt}{1em}\selectfont\textbf
+{
+\vspace{0.5em}
+cd2023 2a-pj1ag1分組報告}\\[18pt]
+%設定文字盒子 [方框寬度的1.5倍寬][對其方式為文字平均分分布於方框中]\\距離下方18pt
+\vspace{1em} %下移
+\fontsize{30pt}{1pt}\selectfont\textbf{網際足球泡泡機器人場景設計}\\
+\vspace{1em}
+\sectionef\fontsize{30pt}{1em}\selectfont\textbf
+{
+\vspace{0.5em}
+Web-based bubbleRob Football Scene Design}
+ \vspace{2em}
+%=---------------------參與人員-----------------------=%             
+\end{center}
+\begin{flushleft}
+\begin{LARGE}
+
+\hspace{32mm}\makebox[5cm][s]
+{指導教授：\quad 嚴\quad 家\quad 銘\quad 老\quad 師}\\[6pt]
+\hspace{32mm}\makebox[5cm][s]
+{班\qquad 級：\quad 四\quad 設\quad 二\quad 甲}\\[6pt]
+\hspace{32mm}\makebox[5cm][s]
+{學\qquad 生：\quad 紀\quad 閔\quad 翔\quad(41023147)}
+\\[6pt]
+\hspace{32mm}\makebox[5cm][s]
+{\hspace{36.5mm}施\quad 建\quad 菖\quad(41023143)}\\[6pt]
+
+%設定文字盒子[寬度為5cm][對其方式為文字平均分分布於方框中]空白距離{36.5mm}\空白1em
+\end{LARGE}
+\end{flushleft}
+\vspace{6em}
+\fontsize{18pt}{2pt}\selectfont\centerline{\makebox[\width][s]
+{中華民國\hspace{3em} 
+112 \quad 年\quad 3\quad 月}}
+\end{titlepage}
+\newpage
+
+
+%=------------------------摘要-----------------------=%
+\input{abstract.tex}
+\newpage
+%=------------------------誌謝----------------------=%
+\addcontentsline{toc}{chapter}{誌~~~謝}
+\centerline\LARGE\textbf{誌~~謝}\\
+\begin{flushleft}
+\fontsize{14pt}{2.5pt}\hspace{12pt}\quad 在此鄭重感謝製作以及協助本分組報告完成的所有人員，首先向大三學長致謝，他們不辭辛勞解決我們的提問，甚至從來沒有不耐煩，總是貼心為我們找出最佳解答。再來是我們的分組組長，他給了我們全方位的支援，提供我們解決問題的方向和建議，給予開始接觸網際對戰遊戲的我們有個學習的方向，開會時也時不時向我們提出建議以及未來走向，同時也給了我們能自由摸索的空間及時間，最後是由本分組組員同心協力才得以完成本報告，特此感謝。
+\end{flushleft}
+\newpage
+%=------------------------目錄----------------------=%
+\renewcommand{\contentsname}{\centerline{\fontsize{18pt}{\baselineskip}\selectfont\textbf{目\quad 錄}}}
+\tableofcontents　　%目錄產生
+
+
+\end{center}
+%=-------------------------內容----------------------=%
+\input{1_introduction.tex}
+\input{2_machine_learning.tex}
+\input{3_training_env.tex}
+%=---------------------參考文獻----------------------=%
+\input{9_reference.tex}
+%=---------------附錄-----------------=%
+\addcontentsline{toc}{chapter}{附錄} %新增目錄名稱
+\input{10_appendix.tex}
+
+
+
+%\newpage
+%\begin{landscape}  %橫式環境
+%\begin{center}
+%\fontsize{0.001pt}{1pt}\selectfont .
+%\vspace{70mm}
+%\rotatebox[origin=cc]{90}{\LARGE 【14】}\rotatebox[origin=cc]%{180}{\LARGE 1-2-APP-8765} %旋轉
+%\end{center}
+%\end{landscape}
+\end{document}
