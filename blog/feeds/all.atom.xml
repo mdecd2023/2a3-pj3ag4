@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 pj3ag4</title><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/" rel="alternate"></link><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/feeds/all.atom.xml" rel="self"></link><id>https://mdecd2023.github.io/2a3-pj3ag4/blog/</id><updated>2023-05-23T14:06:58+08:00</updated><entry><title>2023 協同產品設計實習</title><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/2023-Spring-Project3-Football-Game.html" rel="alternate"></link><published>2023-05-23T11:00:00+08:00</published><updated>2023-05-23T14:06:58+08:00</updated><author><name>mdecourse</name></author><id>tag:mdecd2023.github.io,2023-05-23:/2a3-pj3ag4/blog/2023-Spring-Project3-Football-Game.html</id><summary type="html">&lt;p&gt;2023 年 Spring 協同產品設計實習課程 pj3ag4 網誌.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 pj3ag4</title><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/" rel="alternate"></link><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/feeds/all.atom.xml" rel="self"></link><id>https://mdecd2023.github.io/2a3-pj3ag4/blog/</id><updated>2023-05-23T14:33:01+08:00</updated><entry><title>2023 協同產品設計實習</title><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/2023-Spring-Project3-Football-Game.html" rel="alternate"></link><published>2023-05-23T11:00:00+08:00</published><updated>2023-05-23T14:33:01+08:00</updated><author><name>mdecourse</name></author><id>tag:mdecd2023.github.io,2023-05-23:/2a3-pj3ag4/blog/2023-Spring-Project3-Football-Game.html</id><summary type="html">&lt;p&gt;2023 年 Spring 協同產品設計實習課程 pj3ag4 網誌.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2023 年 Spring 協同產品設計實習課程 pj3ag4 網誌.&lt;/p&gt;
 
 
@@ -124,4 +124,7 @@ while True:
 
 # Stop the simulation
 # sim.stopSimulation()
-&lt;/pre&gt;</content><category term="CD"></category><category term="2023SpringCD"></category></entry></feed>
+&lt;/pre&gt;
+
+&lt;h2&gt;用網誌紀錄每位組員的工作內容&lt;/h2&gt;
+&lt;p&gt;當多人採協同模式執行專案時, 若希望利用網誌紀錄個人的工作內容, 可以在倉儲的目錄中, 建立一個 users 目錄, 然後各自從倉儲的 config 目錄中 copy 一份 pelican.leo 到 users 目錄中, 然後將此 pelican.leo 改名為 pelican_學號.leo, 接著則在可攜系統的命令列中輸入 leo 以開啟 Leo Editor, 之後再利用 Leo Editor 開啟各自位於 users 目錄中的專有 .leo 檔案後, 建立位於 markdown 目錄中的"日期_學號.md" 檔案, 最後再將網誌 Markdown 檔案轉為 blog 目錄中的超文件.&lt;/p&gt;</content><category term="CD"></category><category term="2023SpringCD"></category></entry></feed>

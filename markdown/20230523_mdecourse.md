@@ -142,3 +142,8 @@ while True:
 # sim.stopSimulation()
 </pre>
 
+用網誌紀錄每位組員的工作內容
+----
+
+當多人採協同模式執行專案時, 若希望利用網誌紀錄個人的工作內容, 可以在倉儲的目錄中, 建立一個 users 目錄, 然後各自從倉儲的 config 目錄中 copy 一份 pelican.leo 到 users 目錄中, 然後將此 pelican.leo 改名為 pelican_學號.leo, 接著則在可攜系統的命令列中輸入 leo 以開啟 Leo Editor, 之後再利用 Leo Editor 開啟各自位於 users 目錄中的專有 .leo 檔案後, 建立位於 markdown 目錄中的"日期_學號.md" 檔案, 最後再將網誌 Markdown 檔案轉為 blog 目錄中的超文件.
+
