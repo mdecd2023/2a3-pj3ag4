@@ -86,7 +86,22 @@
 <p><strong></strong></p>
 <p></p>
 <p></p>
-<p></p><h2>STL</h2>
+<p></p><h2>Detail</h2>
+<h3>Repository</h3>
+<p>修改 init.py 將網站標題改為 2a3-pj3ag4</p>
+<p>建立 server_admin.py 使用 8140 port 但只用於 cad2 主機, 請勿在 stud2 主機中啟用</p>
+<p>參與協同設計專案的所有成員應該都必須充分了解為何要使用 Git 與網際內容管理系統</p>
+<p style="padding-left: 30px;">假如針對開會討論以外的事項, 各組員希望導入測試用的內容, 無論是 LaTeX, 開發程式, 簡報或網站內容, 都可以開 branch 進行測試, 若在隨後的會議取得共識, 再將測試的內容合併至 main branch</p><h3>CAD</h3>
+<p>在場景中所使用的所有零組件, 都應該要交代構想, 設計與繪圖流程, 並說明所使用的套件, 最後再提供各種格式的檔案下載, 若單一檔案超過 20MB, 則建議放入可以公開的 GDrive 或 OneDrive, 並提供下載連結.</p><h3>Lua</h3>
+<p>CoppeliaSim 的本體是採用 C++ 與 Qt 編寫, 並利用 Lua 來進行彈性設定與功能延伸, 將 Lua 寫在 .ttt 或 .ttm 中的好處是容易打包, 但在改版過程則沒有文字檔格式的改版資料, 因此較好的開發模式為:</p>
+<p>在開發過程可以利用導入的方式將 Lua 程式放在 .ttt 之外, 等到最後要打包 .ttm 或 .ttt 時再將最後結果置入.</p><h3>Python</h3>
+<p>Legacy Python remote API 因為其效能無法與 zmqRemoteAPI 比較, 因此隨後的 remoteAPI 都將採用 zmq 的方式進行控制, 利用 Python 進行控制過程, 必須要能呈現不同改版的差異, 並在程式中詳加說明.</p>
+<p>一來讓其他參考的分組或組員可以充分了解, 二來也可以在日後自己參考或延伸應用時, 以最短時間進入狀況.</p><h3>Models</h3>
+<p>在場景中所建立的各種 .ttm, 除了要詳細說明如何從 CAD 建立模型, 轉入 CoppeliaSim, 然後進行簡化與相關設定外, 還要提供檔案下載, 說明建立此模型的成員學號等資料, 最後再利用 .git 動畫檔案說明模型特定等.</p>
+<p>因為目前最新的 cmsimde 為了讓手機拍攝的影像檔案能夠在上傳之前進行 resize, 因此破壞原有 .gif 檔案的動態特性.</p>
+<p>這個問題尚未解決之前, 若要導入 .gif, 必須設法直接將檔案送到 images 目錄後再行引用. 例如: 可以直接在 Github 倉儲直接將 .gif 檔案 upload 到 images 目錄後, 然後在近端或中端伺服器中, 以 git pull 拉下後引用.</p>
+<p><img alt="" height="268" src="/images/mechanical_counter_demo.gif" width="400"/></p><h3>Scenes</h3>
+<p>有關各版次所完成的場景與控制程式, 必須詳細說明各版本的差異 (即 release statement), 也可在團隊間學習如何使用 cmsimde 的 peliacan blog 與 reveal presentation, 而最後則必須學習如何在各組員同步編輯 LaTeX 內容的流程中, 完成 pj3 專案報告 pdf 檔案.</p><h2>STL</h2>
 <p></p>
 <p>1.球員皮膚圖檔(<a href="/downloads/STL/skin.7z">skin.7z</a>)</p>
 <p><img alt="" height="193" src="/images/skin.jpg" width="343"/></p>
