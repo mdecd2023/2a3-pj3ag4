@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 pj3ag4 - CD</title><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/" rel="alternate"></link><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/feeds/cd.atom.xml" rel="self"></link><id>https://mdecd2023.github.io/2a3-pj3ag4/blog/</id><updated>2023-05-23T14:06:58+08:00</updated><entry><title>2023 協同產品設計實習</title><link href="https://mdecd2023.github.io/2a3-pj3ag4/blog/2023-Spring-Project3-Football-Game.html" rel="alternate"></link><published>2023-05-23T11:00:00+08:00</published><updated>2023-05-23T14:06:58+08:00</updated><author><name>mdecourse</name></author><id>tag:mdecd2023.github.io,2023-05-23:/2a3-pj3ag4/blog/2023-Spring-Project3-Football-Game.html</id><summary type="html">&lt;p&gt;2023 年 Spring 協同產品設計實習課程 pj3ag4 網誌.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2023 年 Spring 協同產品設計實習課程 pj3ag4 網誌.&lt;/p&gt;
+
+
+&lt;h1&gt;主段落標題&lt;/h1&gt;
+&lt;p&gt;在標題下一行輸入四個等號, 就可以作為該段文章的段落標題&lt;/p&gt;
+&lt;p&gt;也可以直接使用 html, 例如: anchor 標註, &lt;/p&gt;
+&lt;p&gt;pj3ag4 網站: &lt;a href="https://mdecd2023.github.io/2a3-pj3ag4"&gt;2a3-pj3ag4&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;次段落標題&lt;/h2&gt;
+&lt;p&gt;標題下一行輸入四個底線, 也可以作為該段文章的段落標題&lt;/p&gt;
+&lt;p&gt;假如要嵌入程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+from zmqRemoteApi_IPv6 import RemoteAPIClient
+import time
+import math
+import keyboard
+
+# Connect to the CoppeliaSim scene server
+client = RemoteAPIClient('localhost', 23000)
+sim = client.getObject('sim')
+#sim.startSimulation()
+
+# Load the Omniwheel 45deg A1 model
+wheel_a1_file = "C:/CoppeliaSimEdu_4.5.1_rev4_for_cd2023/models/components/locomotion and propulsion/Omniwheel 45deg A.ttm"
+wheel_a1_handle = sim.loadModel(wheel_a1_file)
+wheel_a1_name = "wheelA1"
+sim.setObjectAlias(wheel_a1_handle, wheel_a1_name)
+
+# Load the Omniwheel 45deg A2 model
+wheel_a2_file = "C:/CoppeliaSimEdu_4.5.1_rev4_for_cd2023/models/components/locomotion and propulsion/Omniwheel 45deg A.ttm"
+wheel_a2_handle = sim.loadModel(wheel_a2_file)
+wheel_a2_name = "wheelA2"
+sim.setObjectAlias(wheel_a2_handle, wheel_a2_name)
+
+# Load the Omniwheel 45deg B1 model
+wheel_b1_file = "C:/CoppeliaSimEdu_4.5.1_rev4_for_cd2023/models/components/locomotion and propulsion/Omniwheel 45deg B.ttm"
+wheel_b1_handle = sim.loadModel(wheel_b1_file)
+wheel_b1_name = "wheelB1"
+sim.setObjectAlias(wheel_b1_handle, wheel_b1_name)
+
+# Load the Omniwheel 45deg B2 model
+wheel_b2_file = "C:/CoppeliaSimEdu_4.5.1_rev4_for_cd2023/models/components/locomotion and propulsion/Omniwheel 45deg B.ttm"
+wheel_b2_handle = sim.loadModel(wheel_b2_file)
+wheel_b2_name = "wheelB2"
+sim.setObjectAlias(wheel_b2_handle, wheel_b2_name)
+
+# Create a chassis object
+# set chassis to be 10kg
+chassis_handle = sim.createPureShape(0, 8, [0.1, 0.2, 0.05], 10, None)
+sim.setObjectAlias(chassis_handle, 'chassis')
+
+#Set the local respondable mask to ffff0000 (since the wheel repondable is fff0)
+sim.setObjectInt32Param(chassis_handle, sim.shapeintparam_respondable_mask, 0xff0f)
+
+# Set the position and orientation of the chassis
+sim.setObjectPosition(chassis_handle, -1, [0, 0, 0.055])
+sim.setObjectOrientation(chassis_handle, -1, [0, 0, 0])
+
+# Set the positions of the wheels relative to the chassis
+wheel_a1_pos = [-0.085, 0.075, -0.005]
+wheel_a2_pos = [0.085, -0.075, -0.005]
+wheel_b1_pos = [0.085, 0.075, -0.005]
+wheel_b2_pos = [-0.085, -0.075, -0.005]
+
+# Set the positions of the wheels
+sim.setObjectPosition(wheel_a1_handle, chassis_handle, wheel_a1_pos)
+sim.setObjectPosition(wheel_a2_handle, chassis_handle, wheel_a2_pos)
+sim.setObjectPosition(wheel_b1_handle, chassis_handle, wheel_b1_pos)
+sim.setObjectPosition(wheel_b2_handle, chassis_handle, wheel_b2_pos)
+
+# Set the parent-child relationship between the wheels and the chassis
+sim.setObjectParent(wheel_a1_handle, chassis_handle, True)
+sim.setObjectParent(wheel_a2_handle, chassis_handle, True)
+sim.setObjectParent(wheel_b1_handle, chassis_handle, True)
+sim.setObjectParent(wheel_b2_handle, chassis_handle, True)
+
+# Set wheel velocities
+wheel_a1_velocity = 0
+wheel_a2_velocity = 0
+wheel_b1_velocity = 0
+wheel_b2_velocity = 0
+
+# Set the control loop
+while True:
+    if keyboard.is_pressed('up'):
+        wheel_a1_velocity = 10
+        wheel_a2_velocity = 10
+        wheel_b1_velocity = 10
+        wheel_b2_velocity = 10
+    elif keyboard.is_pressed('down'):
+        wheel_a1_velocity = -10
+        wheel_a2_velocity = -10
+        wheel_b1_velocity = -10
+        wheel_b2_velocity = -10
+    elif keyboard.is_pressed('left'):
+        wheel_a1_velocity = -10
+        wheel_a2_velocity = 10
+        wheel_b1_velocity = 10
+        wheel_b2_velocity = -10
+    elif keyboard.is_pressed('right'):
+        wheel_a1_velocity = 10
+        wheel_a2_velocity = -10
+        wheel_b1_velocity = -10
+        wheel_b2_velocity = 10
+    else:
+        wheel_a1_velocity = 0
+        wheel_a2_velocity = 0
+        wheel_b1_velocity = 0
+        wheel_b2_velocity = 0
+
+    # Set the target velocities for the wheels
+    sim.setJointTargetVelocity(wheel_a1_handle, wheel_a1_velocity)
+    sim.setJointTargetVelocity(wheel_a2_handle, wheel_a2_velocity)
+    sim.setJointTargetVelocity(wheel_b1_handle, wheel_b1_velocity)
+    sim.setJointTargetVelocity(wheel_b2_handle, wheel_b2_velocity)
+
+    # Let CoppeliaSim process the wheel velocities
+    time.sleep(0.01)
+
+    if keyboard.is_pressed('q'):
+        # Press 'q' to break the loop
+        break
+
+# Stop the simulation
+# sim.stopSimulation()
+&lt;/pre&gt;</content><category term="CD"></category><category term="2023SpringCD"></category></entry></feed>
