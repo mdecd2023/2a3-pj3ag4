@@ -201,6 +201,34 @@ end
     end
 end</pre>
 <p></p>
+<p>score這個函式是我自己添加的,作用是判斷分數是多少然後改變色,有兩個輸入值x為分數y為'a',<span>'b','c','d',分別代表記分板從左到右四個數字</span></p>
+<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少(多餘的)</span></p>
+<p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
+<p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
+   
+    for i = 0,6,1 do
+        local part = sim.getObject('./'..y..''..i..'')
+        if (s[x+1][i+1]==1) then
+            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
+        else
+            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
+           
+        end
+    end
+  
+end</pre>
+<p>簡化完長這樣,其實功能沒差</p>
+<h2>記分板導入coppeliasim詳細過程</h2>
+<p>41023121李承翰</p>
+<p>首先先導入STL檔</p>
+<p><img alt="" height="280" src="/images/11.png" width="525"/></p>
+<p>之後<span>將記分板記分板調整為須方向</span></p>
+<p><img alt="" height="294" src="/images/12.png" width="281"/></p>
+<p>調整位置由於動作過於基本這裡快速帶過</p>
+<p><img alt="" height="330" src="/images/13.png" width="621"/></p>
+<p></p>
+<p><img alt="" height="545" src="/images/14.png" width="1069"/></p>
 <p></p>
 <p></p>
 <p></p>

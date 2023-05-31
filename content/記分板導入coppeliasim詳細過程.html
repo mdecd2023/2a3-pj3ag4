@@ -2,7 +2,7 @@
         <head>
         <title>2a3-pj3ag4</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,63 +141,27 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">協同過程 << <a href='協同過程.html'>Previous</a> <a href='Detail.html'>Next</a> >> Detail<br /><h1>pj3</h1>
-<p><span style="background-color: #ffff00;"><strong>pj3目標:</strong></span></p>
-<p><strong>1.場景中的計時器(.ttm)(✅)</strong></p>
-<p><strong>2.添加球員擊球技能、球員倒地再站起</strong></p>
-<p><strong>3.球進球框不刪除改收集(圖檔已完成、只缺更改名稱的函式)(✅)</strong></p>
-<p><strong>4.球員移動優化(例如:前進可以加右轉一起)(✅)</strong></p>
-<p><strong>5.設計球員新外型(✅)</strong></p>
-<p><strong>6.另外以建立以機械轉盤傳動計分系統(.ttm)</strong></p>
-<p><strong>7.將記分板系統改為.ttm格式(✅)</strong></p>
-<p><strong>---</strong></p>
-<p><b>完成進度:</b></p>
-<p><strong>1.第七點完成</strong>(<a href="./../downloads/pj3ag4_zmq_bubbleRob1.7z">pj3ag4_zmq_bubbleRob1.7z</a>, <a href="./../downloads/scoreboard.ttm">scoreboard.ttm</a>)</p>
-<p> ◉scoreboard.ttm中不含感測器只要將場景中感測器改名為sensor1、sensor2就可以用了(要跟board同一層)</p>
-<p><strong>2.第三點完成</strong>(<a href="./../downloads/pj3ag4_zmq_bubbleRob2.7z">pj3ag4_zmq_bubbleRob2.7z</a>)</p>
-<p> ◉將sim.removeObject(ball)---刪除球 改為 sim.setObjectAlias(ball, 'ball')---將球改名(球原本名稱為Sphere)</p>
-<p><strong>3.第五點完成</strong>(<a href="./../downloads/brickRob.ttm">brickRob.ttm</a>)</p>
-<p> ◉將原本車體改為磚塊型，除了解決車體本身會倒的問題之外，還將前進原理更改為四軸驅動，使轉彎更為順暢及合理。</p>
-<p><img alt="" height="315" src="./../images/brickRob.png" width="560"/></p>
-<p><strong>4.第四點完成</strong>(<a href="./../downloads/brickRob.7z">brickRob.7z</a>) 延伸更新:(<a href="./../downloads/brickRob2.7z">brickRob2.7z</a>)</p>
-<p><span> ◉將原本上相左右同時只能執行一個,改為前後可跟左右一起執行,操作性有很大的提升</span></p>
-<p> <span>◉延伸更新為第二種車體運作方式，其原理為更改整個車體角度使其變換方向</span></p>
-<p><span><strong>5.第六點半完成</strong>(<a href="./../downloads/機械計分板.rar">機械計分板.rar</a>&amp;<a href="./../downloads/機械記分板.ttt">機械記分板.ttt</a>)</span></p>
-<p><span> ◉CoppeliaSim4.3.0和CoppeliaSim4.5的版本不相容<a href="./../downloads/嘗試啟動記分板.ttt">嘗試啟動記分板.ttt</a>是使用4.3.3版本開啟的齒輪之間會有所卡頓還需改正齒輪外型</span></p>
-<p><span> ◉</span>將圖檔重畫後再重新導進<span>CoppeliaSim中,將齒輪的質量和慣性矩調整後即可順利運行</span></p>
-<p><span><strong>6.修改尺寸並將磚塊型車體導入場景</strong>(<a href="./../downloads/zmq_brickRob1.7z">zmq_brickRob1.7z</a>)</span></p>
-<p><span> ◉修改足球大小</span></p>
-<p><span> ◉更改感測器位置</span></p>
-<p><strong>7.完成計時器及調整計分板顏色</strong>(<a href="./../downloads/timer.ttm">timer.ttm</a>,<a href="./../downloads/scoreboard2.ttm">scoreboard2.ttm</a>)</p>
-<p><span> ◉利用sim.getSimulationTime()函數獲得模擬時間並配合記分板程式,完成實體計時器製作</span></p>
-<p> ◉將計分板改為黑底白字(將程式修改為停止模擬時分數歸零)</p>
-<p><strong>8.更改球員外型</strong>(<a href="./../downloads/player.7z">player.7z</a>)</p>
-<p><span> ◉添加球員手部</span></p>
-<p><span> ◉球員本體用導入的開啟碰撞會抖動，所以我加入skin物件(球員外型)然後將本體隱藏</span></p>
-<p><span><strong>9.新機械計分板零件包</strong>(<a href="./../downloads/48scoreboard.zip">48scoreboard.zip</a>)</span></p>
-<p><span> ◉導入場景(<a href="./../downloads/scoreboard3.ttt">scoreboard3.ttt</a><span> </span><a href="./../downloads/scoreboard3.ttm">scoreboard3.ttm</a><span>)</span></span></p>
-<p><strong>10.整合所有物件</strong>(<a href="./../downloads/zmq_football.7z">zmq_football.7z</a>)(未完成)</p>
-<p> <span>◉將計時器、球員、場地、記分板、機械記分板導入</span></p>
-<p> <span>◉添加八個球員的控制程式</span></p>
-<p><strong>11.添加背號及空氣牆及zmq_IPv6</strong>(<a href="./../downloads/zmq_football2.7z">zmq_football2.7z</a>)</p>
-<p></p>
-<p><strong>12.機械式記分板lua</strong><strong>程式</strong>(<a href="./../downloads/m_scoreboard.ttm">m_scoreboard.ttm</a>,<a href="./../downloads/zmq_football3.7z">zmq_football3.7z</a>)</p>
-<p><span> </span><span>◉添加機械式計分版程式利用sim.getJointTargetPosition()</span></p>
-<p><span></span>獲取計分版角度再用<span>sim.setJointTargetPosition()更改角度</span></p>
-<p><span><strong>13.在解決問題二的過程中因為轉矩調過大導致出現了能夠托馬斯迴旋的功能</strong>(<a href="./../downloads/player problem1.ttt">player problem1.ttt</a>,<a href="./../downloads/player problem1.ttm">player problem1.ttm</a>)</span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/BEJIMr3QHeI" title="YouTube video player" width="560"></iframe></p>
-<p><span> </span></p>
-<p><span><strong>14.更改外型</strong>(<a href="./../downloads/player2.ttt">player2.ttt</a>,<a href="./../downloads/player.ttm">player.ttm</a>)</span></p>
-<p><span> <span>◉</span>解決翻車問題，增加本體的質量<br/></span></p>
-<p><strong>15.自訂IPv6位置設定過程</strong></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/OpGsRX-sQPE" title="YouTube video player" width="560"></iframe></p>
-<p></p>
-<p><strong>16.統整場景</strong>(<a href="./../downloads/zmq_football4.7z">zmq_football4.7z</a>)</p>
-<p><span> </span><span>◉將新的球員外型導入</span></p>
-<p><span> <span>◉因球員的質量有調整(變重),所以在場地上會晃動</span></span></p>
-<p><span><span> <span>◉將場地分解並改為無碰撞,並將場地移至比實體地板高一點點,這樣球員會在地板上移動,看起來在球場上,並且球員輪子有一點點陷入球場,像是草皮</span></span></span></p>
-<p><span><span><span> <span>◉更改球門顏色,並改為碰撞</span></span></span></span></p>
-<br />協同過程 << <a href='協同過程.html'>Previous</a> <a href='Detail.html'>Next</a> >> Detail</div>
+    <div id="tipue_search_content">程式 << <a href='程式.html'>Previous</a> <br /><h1>記分板導入coppeliasim詳細過程</h1>
+<p>41023121李承翰</p>
+<p>首先先導入STL檔</p>
+<p><img alt="" height="280" src="./../images/11.png" width="525"/></p>
+<p>之後<span>將記分板記分板調整為須方向</span></p>
+<p><img alt="" height="294" src="./../images/12.png" width="281"/></p>
+<p>調整位置由於動作過於基本這裡快速帶過</p>
+<p><img alt="" height="330" src="./../images/13.png" width="621"/></p>
+<p>將其爆炸(分開)</p>
+<p>做法:右鍵Edit&gt;Grouping/Merging&gt;Divide selected shapes</p>
+<p><img alt="" height="545" src="./../images/14.png" width="1069"/></p>
+<p>調整數字顏色這個動作要重複20次將所有德數字都改成想要的顏色</p>
+<p><img alt="" height="363" src="./../images/15.png" width="504"/></p>
+<p>完成後長這樣</p>
+<p><img alt="" height="312" src="./../images/16.png" width="323"/></p>
+<p>由於剛剛沒發現記分板方向錯誤所以這裡再次翻轉記分板調整方向</p>
+<p>特別的是在coppeliasim中可以使用shift加上滑鼠左鍵來拖動一次選取多個物件</p>
+<p><img alt="" height="308" src="./../images/17.png" width="513"/></p>
+<p>之後是改名環節啦要將物件改為對應位置的數字以方便程式寫入</p>
+<p><img alt="" height="664" src="./../images/18.png" width="325"/></p>
+<p>到此處的檔案<a href="./../downloads/詳細過程講解1.ttt">詳細過程講解1.ttt</a></p><br />程式 << <a href='程式.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
