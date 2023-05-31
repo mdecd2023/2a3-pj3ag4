@@ -186,7 +186,36 @@ end
 <p>2.s0~s9為判斷變色的陣列,1為白色(亮)0為黑色(暗)(因為這個計分板式採用七段顯示器的原理)</p>
 <p>3.s為二維陣列,中函s0~s9的陣列</p>
 <p>4. score(0,'a'),score(0,'b'),score(0,'c'),score(0,'d')這個為將記分板數字設為零</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
+    for i=0 ,9,1 do
+        if (x==i)then
+            for j = 0,6,1 do
+                local part = sim.getObject('./'..y..''..j..'')
+                if (s[i+1][j+1]==1) then
+                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
+                else
+                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
+                end
+            end
+        end
+    end
+end</pre>
 <p></p>
-<p></p>
-<p></p>
-<p></p>
+<p>score這個函式是我自己添加的,作用是判斷分數是多少然後改變色,有兩個輸入值x為分數y為'a',<span>'b','c','d',分別代表記分板從左到右四個數字</span></p>
+<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少(多餘的)</span></p>
+<p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
+<p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
+   
+    for i = 0,6,1 do
+        local part = sim.getObject('./'..y..''..i..'')
+        if (s[x+1][i+1]==1) then
+            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
+        else
+            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
+           
+        end
+    end
+  
+end</pre>
+<p>簡化完長這樣,其實功能沒差</p>

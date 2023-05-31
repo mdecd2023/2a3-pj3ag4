@@ -173,12 +173,34 @@
     s9={1,1,1,1,0,1,1}
    
     s={s0,s1,s2,s3,s4,s5,s6,s7,s8,s9}
-    sensor = sim.getObject('/sensor1')
-    sensor = sim.getObject('/sensor2')
+
     score(0,'a')
     score(0,'b')
     score(0,'c')
     score(0,'d')
 end
 </pre>
+<p></p>
+<p>首先sysCall_init()這是初始設定,也就是只會執行一次的函式</p>
+<p>1.score1_1~2_4為得分的紀錄(後面會詳細講)</p>
+<p>2.s0~s9為判斷變色的陣列,1為白色(亮)0為黑色(暗)(因為這個計分板式採用七段顯示器的原理)</p>
+<p>3.s為二維陣列,中函s0~s9的陣列</p>
+<p>4. score(0,'a'),score(0,'b'),score(0,'c'),score(0,'d')這個為將記分板數字設為零</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
+    for i=0 ,9,1 do
+        if (x==i)then
+            for j = 0,6,1 do
+                local part = sim.getObject('./'..y..''..j..'')
+                if (s[i+1][j+1]==1) then
+                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
+                else
+                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
+                end
+            end
+        end
+    end
+end</pre>
+<p></p>
+<p></p>
+<p></p>
 <p></p>
