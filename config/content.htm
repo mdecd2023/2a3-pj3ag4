@@ -275,3 +275,25 @@ end</pre>
 <p>之後是改名環節啦要將物件改為對應位置的數字以方便程式寫入</p>
 <p><img alt="" height="664" src="/images/18.png" width="325"/></p>
 <p>到此處的檔案<a href="/downloads/詳細過程講解1.ttt">詳細過程講解1.ttt</a></p>
+<h2>球員倒地翻身</h2>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
+        floor= sim.getObject('/Floor')
+        player = sim.getObject('/a_player1')
+        a=sim.getObjectOrientation(player,floor)
+        b=sim.getObjectPosition(player,floor)
+        a[0]=0
+        a[1]=0
+        b[2]=b[2]+0.2
+        sim.setObjectPosition(player,floor,b)
+        sim.setObjectOrientation(player,floor,a)
+       </pre>
+<p>elif keyboard.is_pressed('e'):<br/>如果按"e"就執行</p>
+<p><br/>floor= sim.getObject('/Floor')<br/>獲取地板的句柄</p>
+<p><br/>player = sim.getObject('/a_player1')<br/>獲取球員的句柄</p>
+<p><br/>a=sim.getObjectOrientation(player,floor)<br/>獲取相對於地板的球員方向</p>
+<p><br/>b=sim.getObjectPosition(player,floor)<br/>獲取相對於地板的球員位置</p>
+<p><br/>a[0]=0<br/>球員的x角度為0</p>
+<p><br/>a[1]=0<br/>球員的y角度為0</p>
+<p><br/>b[2]=b[2]+0.2<br/>球員的z位置上升0.2</p>
+<p><br/>sim.setObjectPosition(player,floor,b)<br/>設定球員相對於地板的位置</p>
+<p><br/>sim.setObjectOrientation(player,floor,a)<br/>設定球員相對於地板的方向</p>

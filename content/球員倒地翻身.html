@@ -2,7 +2,7 @@
         <head>
         <title>2a3-pj3ag4</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,10 +141,28 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Lua << <a href='Lua.html'>Previous</a> <a href='Models.html'>Next</a> >> Models<br /><h1>Python</h1>
-<p>Legacy Python remote API 因為其效能無法與 zmqRemoteAPI 比較, 因此隨後的 remoteAPI 都將採用 zmq 的方式進行控制, 利用 Python 進行控制過程, 必須要能呈現不同改版的差異, 並在程式中詳加說明.</p>
-<p>一來讓其他參考的分組或組員可以充分了解, 二來也可以在日後自己參考或延伸應用時, 以最短時間進入狀況.</p>
-<br />Lua << <a href='Lua.html'>Previous</a> <a href='Models.html'>Next</a> >> Models</div>
+    <div id="tipue_search_content">記分板導入coppeliasim詳細過程 << <a href='記分板導入coppeliasim詳細過程.html'>Previous</a> <br /><h1>球員倒地翻身</h1>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
+        floor= sim.getObject('/Floor')
+        player = sim.getObject('/a_player1')
+        a=sim.getObjectOrientation(player,floor)
+        b=sim.getObjectPosition(player,floor)
+        a[0]=0
+        a[1]=0
+        b[2]=b[2]+0.2
+        sim.setObjectPosition(player,floor,b)
+        sim.setObjectOrientation(player,floor,a)
+       </pre>
+<p>elif keyboard.is_pressed('e'):<br/>如果按"e"就執行</p>
+<p><br/>floor= sim.getObject('/Floor')<br/>獲取地板的句柄</p>
+<p><br/>player = sim.getObject('/a_player1')<br/>獲取球員的句柄</p>
+<p><br/>a=sim.getObjectOrientation(player,floor)<br/>獲取相對於地板的球員方向</p>
+<p><br/>b=sim.getObjectPosition(player,floor)<br/>獲取相對於地板的球員位置</p>
+<p><br/>a[0]=0<br/>球員的x角度為0</p>
+<p><br/>a[1]=0<br/>球員的y角度為0</p>
+<p><br/>b[2]=b[2]+0.2<br/>球員的z位置上升0.2</p>
+<p><br/>sim.setObjectPosition(player,floor,b)<br/>設定球員相對於地板的位置</p>
+<p><br/>sim.setObjectOrientation(player,floor,a)<br/>設定球員相對於地板的方向</p><br />記分板導入coppeliasim詳細過程 << <a href='記分板導入coppeliasim詳細過程.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">

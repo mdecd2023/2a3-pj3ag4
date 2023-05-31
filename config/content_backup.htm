@@ -202,24 +202,59 @@ end
 end</pre>
 <p></p>
 <p>score這個函式是我自己添加的,作用是判斷分數是多少然後改變色,有兩個輸入值x為分數y為'a',<span>'b','c','d',分別代表記分板從左到右四個數字</span></p>
-<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少(多餘的)</span></p>
+<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少,且超過九就不會執行</span></p>
 <p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
 <p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
-   
-    for i = 0,6,1 do
-        local part = sim.getObject('./'..y..''..i..'')
-        if (s[x+1][i+1]==1) then
-            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
-        else
-            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
-           
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
+    sensor1 = sim.getObject('/sensor1') --獲取sensor1的句柄
+    sensor2 = sim.getObject('/sensor2') --獲取sensor2的句柄
+    result1=sim.readProximitySensor(sensor1) --讀取接近傳感器的值，若有接觸返回值為一正數值
+    result2=sim.readProximitySensor(sensor2)
+
+    
+    if(score1_1&lt;10)then --分數小於十
+        if(result1&gt;0)then --感測器返回值大於零執行
+            score1_2 = score1_1+1
+            if(score1_2==10 and score1_3&lt;9)then
+                score1_2=0 --等於十歸零
+                score1_4=score1_3+1
+            end
+            local ball = sim.getObject('/Sphere')
+            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable) --將物件的detectable關閉
+            score(score1_4,'a')
+            score(score1_2,'b')
+            score1_1=score1_2
+            score1_3=score1_4
         end
+    else
+        sim.pauseSimulation() --暫停
     end
-  
+    if(score2_1&lt;10)then
+        if(result2&gt;0)then
+            score2_2 = score2_1+1
+            if(score2_2==10 and score2_3&lt;9)then
+                score2_2=0
+                score2_4=score2_3+1
+            end
+            local ball = sim.getObject('/Sphere')
+            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable)
+            score(score2_4,'c')
+            score(score2_2,'d')
+            score2_1=score2_2
+            score2_3=score2_4
+        end
+    else
+        sim.pauseSimulation()
+    end
+    p=sim.getSimulationState()
+    if(p==22)then --若模擬停止則將記分板數字歸零
+        score(0,'a')
+        score(0,'b')
+        score(0,'c')
+        score(0,'d')
+    end
 end</pre>
-<p>簡化完長這樣,其實功能沒差</p>
-<h2>記分板導入coppeliasim詳細過程</h2>
+<p>sysCall_actuation()為會一直重複執行的函式</p><h2>記分板導入coppeliasim詳細過程</h2>
 <p>41023121李承翰</p>
 <p>首先先導入STL檔</p>
 <p><img alt="" height="280" src="/images/11.png" width="525"/></p>
@@ -240,3 +275,25 @@ end</pre>
 <p>之後是改名環節啦要將物件改為對應位置的數字以方便程式寫入</p>
 <p><img alt="" height="664" src="/images/18.png" width="325"/></p>
 <p>到此處的檔案<a href="/downloads/詳細過程講解1.ttt">詳細過程講解1.ttt</a></p>
+<h2>球員翻身</h2>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
+        floor= sim.getObject('/Floor')
+        player = sim.getObject('/a_player1')
+        a=sim.getObjectOrientation(player,floor)
+        b=sim.getObjectPosition(player,floor)
+        a[0]=0
+        a[1]=0
+        b[2]=b[2]+0.2
+        sim.setObjectPosition(player,floor,b)
+        sim.setObjectOrientation(player,floor,a)
+       </pre>
+<p>elif keyboard.is_pressed('e'):<br/>如果按"e"就執行</p>
+<p><br/>floor= sim.getObject('/Floor')<br/>獲取地板的句柄</p>
+<p><br/>player = sim.getObject('/a_player1')<br/>獲取球員的句柄</p>
+<p><br/>a=sim.getObjectOrientation(player,floor)<br/>獲取相對於地板的球員方向</p>
+<p><br/>b=sim.getObjectPosition(player,floor)<br/>獲取相對於地板的球員位置</p>
+<p><br/>a[0]=0<br/>球員的x角度為0</p>
+<p><br/>a[1]=0<br/>球員的y角度為0</p>
+<p><br/>b[2]=b[2]+0.2<br/>球員的z位置上升0.2</p>
+<p><br/>sim.setObjectPosition(player,floor,b)<br/>設定球員相對於地板的位置</p>
+<p><br/>sim.setObjectOrientation(player,floor,a)<br/>設定球員相對於地板的方向</p>
