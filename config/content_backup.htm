@@ -32,8 +32,10 @@
 <p>        41023121,41023134:負責簡報</p>
 <p><strong></strong></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/f3FYJpjT1Bg" title="YouTube video player" width="560"></iframe></p>
-<p>==</p>
-<h1>pj3</h1>
+<p>二,0528協同過程</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/AnaKvIxGCP0" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p>==</p><h1>pj3</h1>
 <p><span style="background-color: #ffff00;"><strong>pj3目標:</strong></span></p>
 <p><strong>1.場景中的計時器(.ttm)(✅)</strong></p>
 <p><strong>2.添加球員擊球技能、球員倒地再站起</strong></p>
@@ -56,6 +58,8 @@
 <p> <span>◉延伸更新為第二種車體運作方式，其原理為更改整個車體角度使其變換方向</span></p>
 <p><span><strong>5.第六點半完成</strong>(<a href="/downloads/機械計分板.rar">機械計分板.rar</a>&amp;<a href="/downloads/機械記分板.ttt">機械記分板.ttt</a>)</span></p>
 <p><span> ◉CoppeliaSim4.3.0和CoppeliaSim4.5的版本不相容<a href="/downloads/嘗試啟動記分板.ttt">嘗試啟動記分板.ttt</a>是使用4.3.3版本開啟的齒輪之間會有所卡頓還需改正齒輪外型</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/jwPj4D0m6MQ" title="YouTube video player" width="560"></iframe></p>
+<p><span></span></p>
 <p><span> ◉</span>將圖檔重畫後再重新導進<span>CoppeliaSim中,將齒輪的質量和慣性矩調整後即可順利運行</span></p>
 <p><span><strong>6.修改尺寸並將磚塊型車體導入場景</strong>(<a href="/downloads/zmq_brickRob1.7z">zmq_brickRob1.7z</a>)</span></p>
 <p><span> ◉修改足球大小</span></p>
@@ -88,8 +92,7 @@
 <p><span> </span><span>◉將新的球員外型導入</span></p>
 <p><span> <span>◉因球員的質量有調整(變重),所以在場地上會晃動</span></span></p>
 <p><span><span> <span>◉將場地分解並改為無碰撞,並將場地移至比實體地板高一點點,這樣球員會在地板上移動,看起來在球場上,並且球員輪子有一點點陷入球場,像是草皮</span></span></span></p>
-<p><span><span><span> <span>◉更改球門顏色,並改為碰撞</span></span></span></span></p>
-<h2>Detail</h2>
+<p><span><span><span> <span>◉更改球門顏色,並改為碰撞</span></span></span></span></p><h2>Detail</h2>
 <p>在執行協同產品設計專案的過程, 透過 Github 倉儲可以有效採分散式版次管理的流程儲存多名組員各自分工所完成的內容.</p>
 <p>然而在執行過程中, 會在不同時段產生不同性質的心得, 若要以內容管理的方式分章節式的架構儲存資料, 則可使用網站分頁的方式記錄.</p>
 <p>若要採關鍵字, 特定主題或日記式的流程紀錄, 則可以使用網誌進行記錄. 由於 cmsimde 內建 Pelican blog 架構, 並且利用 Leo Editor 建立產生網誌的 Markdown 文章檔案. 假如多人共用同一個 .leo 專案檔, 則必須要在 XML 架構中進行多人資料版本的衝突解決, 此舉由於 Leo Editor 標註非常多元且屬性繁多, 因此在解決衝突過程, 非常容易造成無法回復原貌的 .leo 檔案.</p>
@@ -150,7 +153,8 @@
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/OpGsRX-sQPE" title="YouTube video player" width="560"></iframe></p>
 <h2>記分板製作</h2>
-<h3>程式</h3>
+<p>2.記分板(LED)(<a href="/downloads/scoreboard(LED).zip">scoreboard(LED).zip</a>)</p>
+<p><img caption="false" height="282" src="/images/2023-05-03.png" width="500"/></p><h3>程式</h3>
 <p>原記分板程式:</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
     score1_1 = 0
@@ -202,24 +206,59 @@ end
 end</pre>
 <p></p>
 <p>score這個函式是我自己添加的,作用是判斷分數是多少然後改變色,有兩個輸入值x為分數y為'a',<span>'b','c','d',分別代表記分板從左到右四個數字</span></p>
-<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少(多餘的)</span></p>
+<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少,且超過九就不會執行</span></p>
 <p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
 <p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
-   
-    for i = 0,6,1 do
-        local part = sim.getObject('./'..y..''..i..'')
-        if (s[x+1][i+1]==1) then
-            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
-        else
-            sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
-           
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
+    sensor1 = sim.getObject('/sensor1') --獲取sensor1的句柄
+    sensor2 = sim.getObject('/sensor2') --獲取sensor2的句柄
+    result1=sim.readProximitySensor(sensor1) --讀取接近傳感器的值，若有接觸返回值為一正數值
+    result2=sim.readProximitySensor(sensor2)
+
+    
+    if(score1_1&lt;10)then --分數小於十
+        if(result1&gt;0)then --感測器返回值大於零執行
+            score1_2 = score1_1+1
+            if(score1_2==10 and score1_3&lt;9)then
+                score1_2=0 --等於十歸零
+                score1_4=score1_3+1
+            end
+            local ball = sim.getObject('/Sphere')
+            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable) --將物件的detectable關閉
+            score(score1_4,'a')
+            score(score1_2,'b')
+            score1_1=score1_2
+            score1_3=score1_4
         end
+    else
+        sim.pauseSimulation() --暫停
     end
-  
+    if(score2_1&lt;10)then
+        if(result2&gt;0)then
+            score2_2 = score2_1+1
+            if(score2_2==10 and score2_3&lt;9)then
+                score2_2=0
+                score2_4=score2_3+1
+            end
+            local ball = sim.getObject('/Sphere')
+            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable)
+            score(score2_4,'c')
+            score(score2_2,'d')
+            score2_1=score2_2
+            score2_3=score2_4
+        end
+    else
+        sim.pauseSimulation()
+    end
+    p=sim.getSimulationState()
+    if(p==22)then --若模擬停止則將記分板數字歸零
+        score(0,'a')
+        score(0,'b')
+        score(0,'c')
+        score(0,'d')
+    end
 end</pre>
-<p>簡化完長這樣,其實功能沒差</p>
-<h2>記分板導入coppeliasim詳細過程</h2>
+<p>sysCall_actuation()為會一直重複執行的函式</p><h2>記分板導入coppeliasim詳細過程</h2>
 <p>41023121李承翰</p>
 <p>首先先導入STL檔</p>
 <p><img alt="" height="280" src="/images/11.png" width="525"/></p>
@@ -240,3 +279,64 @@ end</pre>
 <p>之後是改名環節啦要將物件改為對應位置的數字以方便程式寫入</p>
 <p><img alt="" height="664" src="/images/18.png" width="325"/></p>
 <p>到此處的檔案<a href="/downloads/詳細過程講解1.ttt">詳細過程講解1.ttt</a></p>
+<p>之後開始加入軸來讓齒輪運轉</p>
+<p>首先先新增軸</p>
+<p><img alt="" height="453" src="/images/19.png" width="513"/></p>
+<p>之後調整軸的大小以方便觀察</p>
+<p><img alt="" height="328" src="/images/20.png" width="371"/></p>
+<p>旋轉x軸讓軸可以轉到需要的方向</p>
+<p><img alt="" height="343" src="/images/21.png" width="480"/></p>
+<p>這裡先選軸在選要對中心的物體</p>
+<p><img alt="" height="311" src="/images/22.png" width="519"/></p>
+<p>完成後長這樣</p>
+<p><img alt="" height="210" src="/images/23.png" width="419"/></p>
+<p>設定完後複製軸之後貼上兩次然後重複上個步驟調整位置</p>
+<p><img alt="" height="454" src="/images/24.png" width="471"/></p>
+<p>調整記分板顏色</p>
+<p><img alt="" height="308" src="/images/25.png" width="428"/></p>
+<p>之後開始調整個物件的依賴將齒輪依附到剛剛設定的軸上</p>
+<p>再將齒輪依附到板子上</p>
+<p>再將分數版依附到齒輪上</p>
+<p><img alt="" height="718" src="/images/26.png" width="301"/></p>
+<p>之後開始調整軸的轉動以方便檢查是否會卡住</p>
+<p><img alt="" height="442" src="/images/27.png" width="448"/></p>
+<p>這裡要注意除了主動軸其他軸也要設定轉速為0不然模擬時齒輪會隨意偏擺</p>
+<p><img alt="" height="601" src="/images/28.png" width="620"/></p>
+<p>之後調整它的質量和慣性矩</p>
+<p><img alt="" height="606" src="/images/29.png" width="506"/></p>
+<p><img alt="" height="447" src="/images/30.png" width="496"/></p>
+<p>完成後記分板就能順利運轉啦</p>
+<p><img alt="" height="541" src="/images/31.png" width="418"/></p>
+<p>圖檔:<a href="/downloads/詳細過程講解2.ttt">詳細過程講解2.ttt</a></p>
+<p>之後是轉成.ttm檔的教學</p>
+<p>選擇一的面的物體雙擊找到model properties打勾</p>
+<p><img alt="" height="328" src="/images/32.png" width="466"/></p>
+<p>之後點選這裡重複兩次</p>
+<p><img alt="" height="452" src="/images/33.png" width="556"/></p>
+<p>會先跳出地板可以質借按no之後存取我們想要的物件按OK</p>
+<p></p>
+<p><img alt="" height="657" src="/images/34.png" width="759"/></p>
+<p>之後記得到資料夾有沒有存成功喔</p>
+<p>圖檔:<a href="/downloads/詳細過程講解.ttm">詳細過程講解.ttm</a></p><h2>球員倒地翻身</h2>
+<p>添加球員倒地翻身程式(41023134)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
+        floor= sim.getObject('/Floor')
+        player = sim.getObject('/a_player1')
+        a=sim.getObjectOrientation(player,floor)
+        b=sim.getObjectPosition(player,floor)
+        a[0]=0
+        a[1]=0
+        b[2]=b[2]+0.2
+        sim.setObjectPosition(player,floor,b)
+        sim.setObjectOrientation(player,floor,a)
+       </pre>
+<p>elif keyboard.is_pressed('e'):<br/>如果按"e"就執行</p>
+<p><br/>floor= sim.getObject('/Floor')<br/>獲取地板的句柄</p>
+<p><br/>player = sim.getObject('/a_player1')<br/>獲取球員的句柄</p>
+<p><br/>a=sim.getObjectOrientation(player,floor)<br/>獲取相對於地板的球員方向</p>
+<p><br/>b=sim.getObjectPosition(player,floor)<br/>獲取相對於地板的球員位置</p>
+<p><br/>a[0]=0<br/>球員的x角度為0</p>
+<p><br/>a[1]=0<br/>球員的y角度為0</p>
+<p><br/>b[2]=b[2]+0.2<br/>球員的z位置上升0.2</p>
+<p><br/>sim.setObjectPosition(player,floor,b)<br/>設定球員相對於地板的位置</p>
+<p><br/>sim.setObjectOrientation(player,floor,a)<br/>設定球員相對於地板的方向</p>
