@@ -278,7 +278,45 @@ end</pre>
 <p>之後是改名環節啦要將物件改為對應位置的數字以方便程式寫入</p>
 <p><img alt="" height="664" src="/images/18.png" width="325"/></p>
 <p>到此處的檔案<a href="/downloads/詳細過程講解1.ttt">詳細過程講解1.ttt</a></p>
-<h2>球員倒地翻身</h2>
+<p>之後開始加入軸來讓齒輪運轉</p>
+<p>首先先新增軸</p>
+<p><img alt="" height="453" src="/images/19.png" width="513"/></p>
+<p>之後調整軸的大小以方便觀察</p>
+<p><img alt="" height="328" src="/images/20.png" width="371"/></p>
+<p>旋轉x軸讓軸可以轉到需要的方向</p>
+<p><img alt="" height="343" src="/images/21.png" width="480"/></p>
+<p>這裡先選軸在選要對中心的物體</p>
+<p><img alt="" height="311" src="/images/22.png" width="519"/></p>
+<p>完成後長這樣</p>
+<p><img alt="" height="210" src="/images/23.png" width="419"/></p>
+<p>設定完後複製軸之後貼上兩次然後重複上個步驟調整位置</p>
+<p><img alt="" height="454" src="/images/24.png" width="471"/></p>
+<p>調整記分板顏色</p>
+<p><img alt="" height="308" src="/images/25.png" width="428"/></p>
+<p>之後開始調整個物件的依賴將齒輪依附到剛剛設定的軸上</p>
+<p>再將齒輪依附到板子上</p>
+<p>再將分數版依附到齒輪上</p>
+<p><img alt="" height="718" src="/images/26.png" width="301"/></p>
+<p>之後開始調整軸的轉動以方便檢查是否會卡住</p>
+<p><img alt="" height="442" src="/images/27.png" width="448"/></p>
+<p>這裡要注意除了主動軸其他軸也要設定轉速為0不然模擬時齒輪會隨意偏擺</p>
+<p><img alt="" height="601" src="/images/28.png" width="620"/></p>
+<p>之後調整它的質量和慣性矩</p>
+<p><img alt="" height="606" src="/images/29.png" width="506"/></p>
+<p><img alt="" height="447" src="/images/30.png" width="496"/></p>
+<p>完成後記分板就能順利運轉啦</p>
+<p><img alt="" height="541" src="/images/31.png" width="418"/></p>
+<p>圖檔:<a href="/downloads/詳細過程講解2.ttt">詳細過程講解2.ttt</a></p>
+<p>之後是轉成.ttm檔的教學</p>
+<p>選擇一的面的物體雙擊找到model properties打勾</p>
+<p><img alt="" height="328" src="/images/32.png" width="466"/></p>
+<p>之後點選這裡重複兩次</p>
+<p><img alt="" height="452" src="/images/33.png" width="556"/></p>
+<p>會先跳出地板可以質借按no之後存取我們想要的物件按OK</p>
+<p></p>
+<p><img alt="" height="657" src="/images/34.png" width="759"/></p>
+<p>之後記得到資料夾有沒有存成功喔</p>
+<p>圖檔:<a href="/downloads/詳細過程講解.ttm">詳細過程講解.ttm</a></p><h2>球員倒地翻身</h2>
 <p>添加球員倒地翻身程式(41023134)</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
         floor= sim.getObject('/Floor')

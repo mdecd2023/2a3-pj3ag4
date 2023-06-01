@@ -58,6 +58,8 @@
 <p> <span>◉延伸更新為第二種車體運作方式，其原理為更改整個車體角度使其變換方向</span></p>
 <p><span><strong>5.第六點半完成</strong>(<a href="/downloads/機械計分板.rar">機械計分板.rar</a>&amp;<a href="/downloads/機械記分板.ttt">機械記分板.ttt</a>)</span></p>
 <p><span> ◉CoppeliaSim4.3.0和CoppeliaSim4.5的版本不相容<a href="/downloads/嘗試啟動記分板.ttt">嘗試啟動記分板.ttt</a>是使用4.3.3版本開啟的齒輪之間會有所卡頓還需改正齒輪外型</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/jwPj4D0m6MQ" title="YouTube video player" width="560"></iframe></p>
+<p><span></span></p>
 <p><span> ◉</span>將圖檔重畫後再重新導進<span>CoppeliaSim中,將齒輪的質量和慣性矩調整後即可順利運行</span></p>
 <p><span><strong>6.修改尺寸並將磚塊型車體導入場景</strong>(<a href="/downloads/zmq_brickRob1.7z">zmq_brickRob1.7z</a>)</span></p>
 <p><span> ◉修改足球大小</span></p>
@@ -90,8 +92,7 @@
 <p><span> </span><span>◉將新的球員外型導入</span></p>
 <p><span> <span>◉因球員的質量有調整(變重),所以在場地上會晃動</span></span></p>
 <p><span><span> <span>◉將場地分解並改為無碰撞,並將場地移至比實體地板高一點點,這樣球員會在地板上移動,看起來在球場上,並且球員輪子有一點點陷入球場,像是草皮</span></span></span></p>
-<p><span><span><span> <span>◉更改球門顏色,並改為碰撞</span></span></span></span></p>
-<h2>Detail</h2>
+<p><span><span><span> <span>◉更改球門顏色,並改為碰撞</span></span></span></span></p><h2>Detail</h2>
 <p>在執行協同產品設計專案的過程, 透過 Github 倉儲可以有效採分散式版次管理的流程儲存多名組員各自分工所完成的內容.</p>
 <p>然而在執行過程中, 會在不同時段產生不同性質的心得, 若要以內容管理的方式分章節式的架構儲存資料, 則可使用網站分頁的方式記錄.</p>
 <p>若要採關鍵字, 特定主題或日記式的流程紀錄, 則可以使用網誌進行記錄. 由於 cmsimde 內建 Pelican blog 架構, 並且利用 Leo Editor 建立產生網誌的 Markdown 文章檔案. 假如多人共用同一個 .leo 專案檔, 則必須要在 XML 架構中進行多人資料版本的衝突解決, 此舉由於 Leo Editor 標註非常多元且屬性繁多, 因此在解決衝突過程, 非常容易造成無法回復原貌的 .leo 檔案.</p>
@@ -277,7 +278,45 @@ end</pre>
 <p>之後是改名環節啦要將物件改為對應位置的數字以方便程式寫入</p>
 <p><img alt="" height="664" src="/images/18.png" width="325"/></p>
 <p>到此處的檔案<a href="/downloads/詳細過程講解1.ttt">詳細過程講解1.ttt</a></p>
-<h2>球員倒地翻身</h2>
+<p>之後開始加入軸來讓齒輪運轉</p>
+<p>首先先新增軸</p>
+<p><img alt="" height="453" src="/images/19.png" width="513"/></p>
+<p>之後調整軸的大小以方便觀察</p>
+<p><img alt="" height="328" src="/images/20.png" width="371"/></p>
+<p>旋轉x軸讓軸可以轉到需要的方向</p>
+<p><img alt="" height="343" src="/images/21.png" width="480"/></p>
+<p>這裡先選軸在選要對中心的物體</p>
+<p><img alt="" height="311" src="/images/22.png" width="519"/></p>
+<p>完成後長這樣</p>
+<p><img alt="" height="210" src="/images/23.png" width="419"/></p>
+<p>設定完後複製軸之後貼上兩次然後重複上個步驟調整位置</p>
+<p><img alt="" height="454" src="/images/24.png" width="471"/></p>
+<p>調整記分板顏色</p>
+<p><img alt="" height="308" src="/images/25.png" width="428"/></p>
+<p>之後開始調整個物件的依賴將齒輪依附到剛剛設定的軸上</p>
+<p>再將齒輪依附到板子上</p>
+<p>再將分數版依附到齒輪上</p>
+<p><img alt="" height="718" src="/images/26.png" width="301"/></p>
+<p>之後開始調整軸的轉動以方便檢查是否會卡住</p>
+<p><img alt="" height="442" src="/images/27.png" width="448"/></p>
+<p>這裡要注意除了主動軸其他軸也要設定轉速為0不然模擬時齒輪會隨意偏擺</p>
+<p><img alt="" height="601" src="/images/28.png" width="620"/></p>
+<p>之後調整它的質量和慣性矩</p>
+<p><img alt="" height="606" src="/images/29.png" width="506"/></p>
+<p><img alt="" height="447" src="/images/30.png" width="496"/></p>
+<p>完成後記分板就能順利運轉啦</p>
+<p><img alt="" height="541" src="/images/31.png" width="418"/></p>
+<p><a href="/downloads/詳細過程講解2.ttt">詳細過程講解2.ttt</a></p>
+<p>之後是轉成.ttm檔的教學</p>
+<p>選擇一的面的物體雙擊找到model properties打勾</p>
+<p><img alt="" height="328" src="/images/32.png" width="466"/></p>
+<p>之後點選這裡重複兩次</p>
+<p><img alt="" height="452" src="/images/33.png" width="556"/></p>
+<p>會先跳出地板可以質借按no之後存取我們想要的物件按OK</p>
+<p></p>
+<p><img alt="" height="657" src="/images/34.png" width="759"/></p>
+<p>之後記得到資料夾有沒有存成功喔</p>
+<p>圖檔:<a href="/downloads/詳細過程講解.ttm">詳細過程講解.ttm</a></p><h2>球員倒地翻身</h2>
 <p>添加球員倒地翻身程式(41023134)</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
         floor= sim.getObject('/Floor')
