@@ -372,4 +372,22 @@ end</pre>
         setangel(y)
     else:
         setangel(0)</pre>
+<p><span>按鍵控制</span>球員程式(w,a,s,d,q)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def playercontrol(x,y):
+    if keyboard.is_pressed('w'):
+        setVelocity(x,x,x,x)
+        controlangel(y)
+    elif keyboard.is_pressed('s'):
+        setVelocity(-x,-x,-x,-x)
+        controlangel(y)
+    elif keyboard.is_pressed('a'):
+        setVelocity(-x,x,-x,x)
+    elif keyboard.is_pressed('d'):
+        setVelocity(x,-x,x,-x)
+    elif keyboard.is_pressed('q'):
+        # stop simulation
+        sim.stopSimulation()
+    else:
+        setVelocity(0, 0, 0, 0)
+        setangel(0)</pre>
 <p></p>

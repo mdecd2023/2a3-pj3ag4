@@ -4,6 +4,8 @@ from zmqRemoteApi_IPv6 import RemoteAPIClient
 import keyboard
 import random
 import math
+#import pathlib.path
+
 
 client = RemoteAPIClient('localhost', 23000)
 #client = RemoteAPIClient('2001:288:6004:17:2023:cda:4:6', 23000)

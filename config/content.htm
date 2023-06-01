@@ -390,4 +390,10 @@ end</pre>
     else:
         setVelocity(0, 0, 0, 0)
         setangel(0)</pre>
+<p>控制球員速度(主要在執行的部分,一直執行)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">while True:
+    if keyboard.is_pressed('shift'):
+        playercontrol(v+4,a-20)
+    else:
+        playercontrol(v,a)</pre>
 <p></p>
