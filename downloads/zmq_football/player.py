@@ -36,26 +36,21 @@ def setangel(y):
     sim.setObjectOrientation(leftMotor, ontology, angel)
     sim.setObjectOrientation(rightMotor, ontology, angel)
     #輸入一個變數改變前輪方向
-
-
+def controlangel(y):
+    if keyboard.is_pressed('a'):
+        setangel(-y)
+    elif keyboard.is_pressed('d'):
+        setangel(y)
+    else:
+        setangel(0)
 
 def playercontrol(x,y):
     if keyboard.is_pressed('w'):
         setVelocity(x,x,x,x)
-        if keyboard.is_pressed('a'):
-            setangel(-y)
-        elif keyboard.is_pressed('d'):
-            setangel(y)
-        else:
-            setangel(0)
+        controlangel(y)
     elif keyboard.is_pressed('s'):
         setVelocity(-x,-x,-x,-x)
-        if keyboard.is_pressed('a'):
-            setangel(-y)
-        elif keyboard.is_pressed('d'):
-            setangel(y)
-        else:
-            setangel(0)
+        controlangel(y)
     elif keyboard.is_pressed('a'):
         setVelocity(-x,x,-x,x)
     elif keyboard.is_pressed('d'):
