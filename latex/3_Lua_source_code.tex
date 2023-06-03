@@ -51,6 +51,15 @@
 \end{center}
 \end{figure}
 (圖.\ref{44})此程式碼使用無限循環"while True"迴圈，如果按下"shift"會調用 playcontrol(v+4, a-20)函數，使原有速度增加4，角度減去20。使用無線循環迴圈檢測鍵盤輸入，調整速度與角度。\\
+\section{球員改良-倒地翻身}
+\begin{figure}[hbt!]
+\begin{center}
+\includegraphics[height=3cm]{45}
+\caption{\Large 控制球員翻身}\label{fig.45}
+\end{center}
+\end{figure}
+(圖.\ref{45}) 定義如果按"e"就執行，以 sim.getObject('/Floor') 獲取地板句柄、sim.getObject('/a player1') 獲取球員句柄。利用 sim.getObjectOrientation(player,floor) 獲取相對於地板的球員方向、sim.getObjectPosition(player,floor) 獲取相對於地板的球員位置，將數值存於變量"a"及"b"中。a[0]=0 將球員的x角度為0，a[1]=0 將球員的y角度為0，b[2]=b[2]+0.2 將球員的z位置上升0.2。最後通過 sim.setObjectPosition(player,floor,b) 設定球員相對於地板的位置、sim.setObjectOrientation(player,floor,a) 設定球員相對於地板的方向。
+  此段程式碼根據按下"e"來執行將指定對象地朝向與位置進行修改，使球員翻倒後能夠再次翻身站起，繼續進行比賽。
 
 
 
