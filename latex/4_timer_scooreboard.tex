@@ -8,19 +8,22 @@
 \section{計時器}
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[height=6cm]{46}
+\includegraphics[height=8cm]{46}
 \caption{\Large 定義變量}\label{fig.46}
 \end{center}
 \end{figure}
-(圖.\ref{46}) 以函數 sysCall init 定義一些變量，將 t2 初始化為 0，s0 到 s9 由 0 到 1 組成的列表，用於後續計算。通過調用 score(0, 'a')、score(0, 'b')、score(0, 'c')和 score(0, 'd') 來初始化名為 a、b、c、d 的得分。此程式碼做愈是在模擬環境初始化階段定義一些變量、列表及得分的部分。\\
+(圖.\ref{46}) 以函數 sysCall init 定義一些變量，將 t2 初始化為 0，s0 到 s9 由 0 到 1 組成的列表，用於後續計算。通過調用 score(0, 'a')、score(0, 'b')、score(0, 'c')和 score(0, 'd') 來初始化名為 a、b、c、d 的得分。\\
+  此程式碼做愈是在模擬環境初始化階段定義一些變量、列表及得分的部分。\\
+\newpage
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[height=6cm]{47}
+\includegraphics[height=8cm]{47}
 \caption{\Large 數字顏色}\label{fig.47}
 \end{center}
 \end{figure}
 (圖.\ref{47}) score 函數接受參數 "x"、"y"，使用一個循環重複數字 0 到 9，首先檢查"x"是否等於當前數字，如果相等則執行內部循環。以 sim.getObject() 根據給定的字符串構建對象名稱並儲存在 part 變量中。再檢查 s[i+1][j+1] ，數字 i 在位置 j 上如果為 1 就使用 sim.setShapeColor() 將 part 對象的顏色設置為紅色 （{1, 0, 0}），若非則將顏色設置為黑色 （{0, 0, 0}）。\\
   根據輸入的數字"x"、"y"設置對應數字的顏色，以數字的模式在模擬環境中的相對應位置設置不同的顏色。\\
+\newpage
 \begin{figure}[hbt!]
 \begin{center}
 \includegraphics[height=9cm]{48}
@@ -30,9 +33,10 @@
 
 (圖.\ref{48}) sysCall actuation 在模擬時被調用，首先藉由 sim.getSimulationTime() 獲取當前時間並除以4，儲存在變量 simulationTime 中。以 simulationTime 計算"t1"、"t2"、"t3"及"t4"，分別表示當前時間的不同部分，所得值通過 simulationTime1 除以相對應數字，並取整數部分。\\
 再來以 score() 將計算得到的值分別與"a"、"b"、"c"、"d"一起傳遞，可以根據時間的變化來更新相應的數字形狀的顏色。\\
-  根據模擬時間的變化更新數字形狀的顏色，在特定條件下暫停模擬或重置顯示的顏色。\\\begin{figure}[hbt!]
+  根據模擬時間的變化更新數字形狀的顏色，在特定條件下暫停模擬或重置顯示的顏色。\\
+\begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=10cm]{49}
+\includegraphics[width=6cm]{49}
 \caption{\Large 計時器}\label{fig.49}
 \end{center}
 \end{figure}

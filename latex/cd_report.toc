@@ -24,4 +24,8 @@
 \contentsline {section}{\numberline {5.1}摘要}{17}{section.5.1}%
 \contentsline {section}{\numberline {5.2}機械記分板放入場景}{17}{section.5.2}%
 \contentsline {section}{\numberline {5.3}統整場景}{19}{section.5.3}%
+\contentsline {chapter}{\numberline {6}遠端連線}{20}{chapter.6}%
+\contentsline {section}{\numberline {6.1}摘要}{20}{section.6.1}%
+\contentsline {section}{\numberline {6.2}連線說明-防火牆}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}連線說明-IPv6}{20}{section.6.3}%
 \contentsfinish 
