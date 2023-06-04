@@ -19,4 +19,5 @@
 \contentsline {section}{\numberline {4.1}摘要}{8}{section.4.1}%
 \contentsline {section}{\numberline {4.2}計時器}{8}{section.4.2}%
 \contentsline {section}{\numberline {4.3}LED記分板}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}機械式轉盤記分板}{15}{section.4.4}%
 \contentsfinish 

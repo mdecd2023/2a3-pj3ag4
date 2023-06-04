@@ -96,3 +96,29 @@
 \end{figure}
 
 (圖.\ref{56}檢查分數是否小於5分。如果分數達到5分或更高，它會暫停仿真並結束程式執行。\\
+\newpage
+\section{機械式轉盤記分板}
+  除了採用 LED 顯示計分外，另外建立以機械轉盤傳動計分系統，納入每按一下"i"轉盤及順時鐘旋轉36度。\\
+\begin{figure}[hbt!]
+\begin{center}
+\includegraphics[width=9cm]{57}
+\caption{\Large 機械記分板}\label{57}
+\end{center}
+\end{figure}
+\newpage
+\begin{figure}[hbt!]
+\begin{center}
+\includegraphics[width=8cm]{58}
+\caption{\Large 獲取變量}\label{58}
+\end{center}
+\end{figure}
+(圖.\ref{58} 使用 sim.getObject() 獲取 /sensor1 存入變量"sensor"、獲取 /scorebord/board a/joint[1] 的關節存入變量"a1"，以 sim.getJointTargetPosition() 獲取"a1"目標位置存入變量"a2"，獲取變量"b1"目標位置存入變量"b2"。\\
+\begin{figure}[hbt!]
+\begin{center}
+\includegraphics[width=7cm]{59}
+\caption{\Large 角度偏移}\label{59}
+\end{center}
+\end{figure}
+
+(圖.\ref{59} sim.readProximitySensor() 函數獲取近接傳感器 "sensor1"、"sensor2"的結果，存入變量"result1"、"result2"，如果大於0則執行：關節"a1"的目標位置為當当前位置"a2"加上36度的角度偏移，並將"a2"更新為"a3"以便下次執行使用。\\
+  此程式碼根據近接傳感器的檢測結果來控制關節運動，使機械式轉盤隨比分計分。\\
