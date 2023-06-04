@@ -15,4 +15,8 @@
 \contentsline {section}{\numberline {3.5}移動操作-控制球員移動}{6}{section.3.5}%
 \contentsline {section}{\numberline {3.6}移動操作-維持速度}{7}{section.3.6}%
 \contentsline {section}{\numberline {3.7}球員改良-倒地翻身}{7}{section.3.7}%
+\contentsline {chapter}{\numberline {4}計時器與記分板}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}摘要}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}計時器}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}LED記分板}{11}{section.4.3}%
 \contentsfinish 

@@ -31,7 +31,6 @@
 \end{center}
 \end{figure}
 (圖.\ref{42}) controlange1 函數接受控制角度的函數"y"，檢查按鍵輸入，按下"a"調用 setangel(-y) ，將傳入函數取相反值設成角度；按下"d"則用 setangel(y)，傳入函數直接設成角度；無按下任何鍵則調用 setangel(0)，將角度設為零。\\
-\newpage
   此程式碼根據按鍵輸入來控制角度值輸入，可以分別控制向左向右角度值。\\
 \section{移動操作-控制球員移動}
 \begin{figure}[hbt!]
@@ -54,12 +53,10 @@
 \section{球員改良-倒地翻身}
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[height=3cm]{45}
+\includegraphics[height=5cm]{45}
 \caption{\Large 控制球員翻身}\label{fig.45}
 \end{center}
 \end{figure}
-(圖.\ref{45}) 定義如果按"e"就執行，以 sim.getObject('/Floor') 獲取地板句柄、sim.getObject('/a player1') 獲取球員句柄。利用 sim.getObjectOrientation(player,floor) 獲取相對於地板的球員方向、sim.getObjectPosition(player,floor) 獲取相對於地板的球員位置，將數值存於變量"a"及"b"中。a[0]=0 將球員的x角度為0，a[1]=0 將球員的y角度為0，b[2]=b[2]+0.2 將球員的z位置上升0.2。最後通過 sim.setObjectPosition(player,floor,b) 設定球員相對於地板的位置、sim.setObjectOrientation(player,floor,a) 設定球員相對於地板的方向。
-  此段程式碼根據按下"e"來執行將指定對象地朝向與位置進行修改，使球員翻倒後能夠再次翻身站起，繼續進行比賽。
-
-
-
+(圖.\ref{45}) 定義如果按"e"就執行，以 sim.getObject('/Floor') 獲取地板句柄、('/a player1') 球員句柄；sim.getObjectOrientation(player,floor) 獲取相對於地板的球員方向、Position(player,floor) 獲取相對於地板的球員位置，將數值存於變量"a"及"b"中。a[0]=0 將球員的x角度為0，a[1]=0 將球員的y角度為0，b[2]=b[2]+0.2 將球員的z位置上升0.2。最後通過 sim.setObjectPosition(player,floor,b) 設定球員相對於地板的位置、Orientation(player,floor,a) 設定球員相對於地板的方向。\\
+  此段程式碼根據按下"e"來執行將指定對象地朝向與位置進行修改，使球員翻倒後能夠再次翻身站起，繼續進行比賽。\\
+\renewcommand{\baselinestretch}{1} %設定行距
