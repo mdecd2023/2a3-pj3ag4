@@ -20,4 +20,8 @@
 \contentsline {section}{\numberline {4.2}計時器}{8}{section.4.2}%
 \contentsline {section}{\numberline {4.3}LED記分板}{11}{section.4.3}%
 \contentsline {section}{\numberline {4.4}機械式轉盤記分板}{15}{section.4.4}%
+\contentsline {chapter}{\numberline {5}場景模擬}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}摘要}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}機械記分板放入場景}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}統整場景}{19}{section.5.3}%
 \contentsfinish 

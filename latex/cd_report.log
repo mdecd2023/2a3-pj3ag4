@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.10) (preloaded format=xelatex 2023.4.10)  4 JUN 2023 18:32
+This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.10) (preloaded format=xelatex 2023.4.10)  4 JUN 2023 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -912,6 +912,26 @@ Overfull \hbox (2.13997pt too wide) detected at line 22
  \TU/TimesNewRoman(0)/m/n/20.74 15
  []
 
+
+Overfull \hbox (2.13997pt too wide) detected at line 23
+ \TU/TimesNewRoman(0)/m/n/20.74 17
+ []
+
+
+Overfull \hbox (2.13997pt too wide) detected at line 24
+ \TU/TimesNewRoman(0)/m/n/20.74 17
+ []
+
+
+Overfull \hbox (2.13997pt too wide) detected at line 25
+ \TU/TimesNewRoman(0)/m/n/20.74 17
+ []
+
+
+Overfull \hbox (2.13997pt too wide) detected at line 26
+ \TU/TimesNewRoman(0)/m/n/20.74 19
+ []
+
 )
 \tf@toc=\write4
 \openout4 = `cd_report.toc'.
@@ -971,6 +991,31 @@ Overfull \hbox (0.43929pt too wide) detected at line 28
 
 Overfull \hbox (0.43929pt too wide) detected at line 29
  []\TU/lmr/m/n/20.74 16
+ []
+
+
+Overfull \hbox (0.43929pt too wide) detected at line 31
+ []\TU/lmr/m/n/20.74 17
+ []
+
+
+Overfull \hbox (0.43929pt too wide) detected at line 32
+ []\TU/lmr/m/n/20.74 18
+ []
+
+
+Overfull \hbox (0.43929pt too wide) detected at line 33
+ []\TU/lmr/m/n/20.74 18
+ []
+
+
+Overfull \hbox (0.43929pt too wide) detected at line 34
+ []\TU/lmr/m/n/20.74 19
+ []
+
+
+Overfull \hbox (0.43929pt too wide) detected at line 35
+ []\TU/lmr/m/n/20.74 19
  []
 
 )
@@ -1207,12 +1252,33 @@ Overfull \hbox (22.16492pt too wide) in paragraph at lines 115--122
 an(0)/m/n/14 sim.getJointTargetPosition()
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 123--148
+) (5_Coppeliasim_simulate_scene.tex
+Underfull \hbox (badness 10000) in paragraph at lines 123--1
 
  []
 
-[16] [17] (cd_report.aux)
+[16]
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+File: ./../images//15.png Graphic file (type bmp)
+<./../images//15.png>
+File: ./../images//28.png Graphic file (type bmp)
+<./../images//28.png>
+[17
+
+]
+File: ./../images//29.png Graphic file (type bmp)
+<./../images//29.png>
+ [18]
+File: ./../images//60.png Graphic file (type bmp)
+<./../images//60.png>
+File: ./../images//61.png Graphic file (type bmp)
+<./../images//61.png>
+) [19] (cd_report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1220,15 +1286,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `cd_report.out' has not changed.
-(rerunfilecheck)             Checksum: 9FCEDF109F3ED5F11EA13C0AF7D62A15;2224.
+(rerunfilecheck)             Checksum: C99D0A96B1007AEA488327BA2ECCEE19;2585.
  ) 
 Here is how much of TeX's memory you used:
- 19670 strings out of 410532
- 381140 string characters out of 2813299
- 946331 words of memory out of 3000000
- 40551 multiletter control sequences out of 15000+600000
+ 19771 strings out of 410532
+ 382849 string characters out of 2813299
+ 947331 words of memory out of 3000000
+ 40649 multiletter control sequences out of 15000+600000
  475149 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,6n,84p,786b,482s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
-Output written on cd_report.pdf (27 pages).
+Output written on cd_report.pdf (29 pages).
