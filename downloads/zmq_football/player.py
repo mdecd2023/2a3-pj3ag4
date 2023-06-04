@@ -4,7 +4,7 @@ from zmqRemoteApi_IPv6 import RemoteAPIClient
 import keyboard
 import random
 import math
-#import pathlib.path
+
 
 
 client = RemoteAPIClient('localhost', 23000)
@@ -15,9 +15,20 @@ sim = client.getObject('sim')
 #sim.startSimulation()
 print('Simulation started')
 
-player='/a_player1'
 v=8
 a=40
+
+#選擇控制的球員
+player='/a_player1'
+#player='/a_player2'
+#player='/a_player3'
+#player='/a_player4'
+#player='/b_player1'
+#player='/b_player2'
+#player='/b_player3'
+#player='/b_player4'
+
+
 
 def setVelocity(lfwV, rfwV,lbwV, rbwV):
     leftMotor1 = sim.getObject(player+'/joint_lf')
@@ -45,7 +56,16 @@ def controlangel(y):
         setangel(y)
     else:
         setangel(0)
-
+def turnover():
+    floor= sim.getObject('/Floor')
+    player = sim.getObject('/a_player1')
+    a=sim.getObjectOrientation(player,floor)
+    b=sim.getObjectPosition(player,floor)
+    a[0]=0
+    a[1]=0
+    b[2]=b[2]+0.2
+    sim.setObjectPosition(player,floor,b)
+    sim.setObjectOrientation(player,floor,a)
 def playercontrol(x,y):
     if keyboard.is_pressed('w'):
         setVelocity(x,x,x,x)
@@ -57,6 +77,8 @@ def playercontrol(x,y):
         setVelocity(-x,x,-x,x)
     elif keyboard.is_pressed('d'):
         setVelocity(x,-x,x,-x)
+    elif keyboard.is_pressed('space'):
+        turnover()
     elif keyboard.is_pressed('q'):
         # stop simulation
         sim.stopSimulation()
