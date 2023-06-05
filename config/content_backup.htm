@@ -163,7 +163,12 @@
 <p>11.影片說明</p>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/OpGsRX-sQPE" title="YouTube video player" width="560"></iframe></p>
-<h2>記分板製作</h2>
+<h2>電子記分板</h2>
+<p>繪製:</p>
+<p></p>
+<p></p>
+<p></p>
+<p>程式:</p><h2>機械記分板製作</h2>
 <p>1.齒輪式記分板(<a href="/downloads/gear scoreboard.zip">gear scoreboard.zip</a>) (41023148)</p>
 <p><img alt="" height="281" src="/images/2023-06-02.png" width="500"/></p>
 <p>零件繪製過程</p>
@@ -214,60 +219,7 @@ var winkVideoData01 = {
 </div>
 <p>2.記分板(LED)(<a href="/downloads/scoreboard(LED).zip">scoreboard(LED).zip</a>)</p>
 <p><img caption="false" height="282" src="/images/2023-05-03.png" width="500"/></p><h3>程式</h3>
-<p>原記分板程式:</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
-    score1_1 = 0
-    score1_2 = 0
-    score1_3 = 0
-    score1_4 = 0
-    score2_1 = 0
-    score2_2 = 0
-    score2_3 = 0
-    score2_4 = 0
-    s0={1,1,1,0,1,1,1}
-    s1={0,0,1,0,0,1,0}
-    s2={1,0,1,1,1,0,1}
-    s3={1,0,1,1,0,1,1}
-    s4={0,1,1,1,0,1,0}
-    s5={1,1,0,1,0,1,1}
-    s6={1,1,0,1,1,1,1}
-    s7={1,0,1,0,0,1,0}
-    s8={1,1,1,1,1,1,1}
-    s9={1,1,1,1,0,1,1}
-   
-    s={s0,s1,s2,s3,s4,s5,s6,s7,s8,s9}
-
-    score(0,'a')
-    score(0,'b')
-    score(0,'c')
-    score(0,'d')
-end
-</pre>
-<p></p>
-<p>首先sysCall_init()這是初始設定,也就是只會執行一次的函式</p>
-<p>1.score1_1~2_4為得分的紀錄(後面會詳細講)</p>
-<p>2.s0~s9為判斷變色的陣列,1為白色(亮)0為黑色(暗)(因為這個計分板式採用七段顯示器的原理)</p>
-<p>3.s為二維陣列,中函s0~s9的陣列</p>
-<p>4. score(0,'a'),score(0,'b'),score(0,'c'),score(0,'d')這個為將記分板數字設為零</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
-    for i=0 ,9,1 do
-        if (x==i)then
-            for j = 0,6,1 do
-                local part = sim.getObject('./'..y..''..j..'')
-                if (s[i+1][j+1]==1) then
-                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
-                else
-                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
-                end
-            end
-        end
-    end
-end</pre>
-<p></p>
-<p>score這個函式是我自己添加的,作用是判斷分數是多少然後改變色,有兩個輸入值x為分數y為'a',<span>'b','c','d',分別代表記分板從左到右四個數字</span></p>
-<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少,且超過九就不會執行</span></p>
-<p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
-<p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
+<p>機械記分板程式:</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
     sensor1 = sim.getObject('/sensor1')
     sensor2 = sim.getObject('/sensor2')

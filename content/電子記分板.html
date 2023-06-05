@@ -141,23 +141,117 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">jitsi << <a href='jitsi.html'>Previous</a> <a href='pj3.html'>Next</a> >> pj3<br /><h1>協同過程</h1>
-<p>一<strong>.0515協同過程</strong></p>
-<p><strong>    </strong>1.分配PJ3的任務:</p>
-<p>        41023146:負責目標2,3,4<span>,</span>7</p>
-<p>        41023147,41023143:負責目標4,5</p>
-<p>        41023112,41023121:負責目標6</p>
-<p>        41023148:負責目標1,6</p>
-<p>        41023104,41023134:負責簡報</p>
-<p><strong></strong></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/f3FYJpjT1Bg" title="YouTube video player" width="560"></iframe></p>
-<p>二,0528協同過程</p>
-<p>   1.課堂上實際操作對戰</p>
-<p>   2.各組員將負責的部分詳細更新至倉儲</p>
-<p>   3.負責latex的同學要開始更新</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/AnaKvIxGCP0" title="YouTube video player" width="560"></iframe></p>
+    <div id="tipue_search_content">連線說明 << <a href='連線說明.html'>Previous</a> <a href='機械記分板製作.html'>Next</a> >> 機械記分板製作<br /><h1>電子記分板</h1>
+<p>繪製:</p>
 <p></p>
-<p>==</p><br />jitsi << <a href='jitsi.html'>Previous</a> <a href='pj3.html'>Next</a> >> pj3</div>
+<p></p>
+<p></p>
+<p>程式:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    score1_1 = 0
+    score1_2 = 0
+    score1_3 = 0
+    score1_4 = 0
+    score2_1 = 0
+    score2_2 = 0
+    score2_3 = 0
+    score2_4 = 0
+    s0={1,1,1,0,1,1,1}
+    s1={0,0,1,0,0,1,0}
+    s2={1,0,1,1,1,0,1}
+    s3={1,0,1,1,0,1,1}
+    s4={0,1,1,1,0,1,0}
+    s5={1,1,0,1,0,1,1}
+    s6={1,1,0,1,1,1,1}
+    s7={1,0,1,0,0,1,0}
+    s8={1,1,1,1,1,1,1}
+    s9={1,1,1,1,0,1,1}
+   
+    s={s0,s1,s2,s3,s4,s5,s6,s7,s8,s9}
+
+    score(0,'a')
+    score(0,'b')
+    score(0,'c')
+    score(0,'d')
+end
+</pre>
+<p></p>
+<p>首先sysCall_init()這是初始設定,也就是只會執行一次的函式</p>
+<p>1.score1_1~2_4為得分的紀錄(後面會詳細講)</p>
+<p>2.s0~s9為判斷變色的陣列,1為白色(亮)0為黑色(暗)(因為這個計分板式採用七段顯示器的原理)</p>
+<p>3.s為二維陣列,中函s0~s9的陣列</p>
+<p>4. score(0,'a'),score(0,'b'),score(0,'c'),score(0,'d')這個為將記分板數字設為零</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function score(x,y)
+    for i=0 ,9,1 do
+        if (x==i)then
+            for j = 0,6,1 do
+                local part = sim.getObject('./'..y..''..j..'')
+                if (s[i+1][j+1]==1) then
+                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {1, 1, 1})
+                else
+                    sim.setShapeColor(part, nil, sim.colorcomponent_ambient_diffuse, {0, 0, 0})
+                end
+            end
+        end
+    end
+end</pre>
+<p></p>
+<p>score這個函式是我自己添加的,作用是判斷分數是多少然後改變色,有兩個輸入值x為分數y為'a',<span>'b','c','d',分別代表記分板從左到右四個數字</span></p>
+<p><span>函式中第一個for迴圈執行九次配合下面if函式可判輸入的分數為多少,且超過九就不會執行</span></p>
+<p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
+<p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
+    sensor1 = sim.getObject('/sensor1')
+    sensor2 = sim.getObject('/sensor2')
+    result1=sim.readProximitySensor(sensor1)
+    result2=sim.readProximitySensor(sensor2)
+    
+    if(score1_1&lt;10)then
+        if(result1&gt;0)then
+            score1_2 = score1_1+1
+            if(score1_2==10 and score1_3&lt;9)then
+                score1_2=0
+                score1_4=score1_3+1
+            end
+            local ball = sim.getObject('/Sphere')
+            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable)
+            score(score1_4,'a')
+            score(score1_2,'b')
+            score1_1=score1_2
+            score1_3=score1_4
+        end
+    else
+        sim.pauseSimulation()
+    end
+    if(score2_1&lt;10)then
+        if(result2&gt;0)then
+            score2_2 = score2_1+1
+            if(score2_2==10 and score2_3&lt;9)then
+                score2_2=0
+                score2_4=score2_3+1
+            end
+            local ball = sim.getObject('/Sphere')
+            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable)
+            score(score2_4,'c')
+            score(score2_2,'d')
+            score2_1=score2_2
+            score2_3=score2_4
+        end
+    else
+        sim.pauseSimulation()
+    end
+    p=sim.getSimulationState()
+    if(p==22)then
+        score(0,'a')
+        score(0,'b')
+        score(0,'c')
+        score(0,'d')
+    end
+end</pre>
+<p>這是一直執行的程式</p>
+<p>判斷感測器是否有接觸來加分</p>
+<p>加分時去除球的可探測</p>
+<p>分數不能超過99</p><br />連線說明 << <a href='連線說明.html'>Previous</a> <a href='機械記分板製作.html'>Next</a> >> 機械記分板製作</div>
         
     <!-- footer -->
       <div class="container">
