@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='jitsi.html'>jitsi</a><ul class='dropdown'><li><a href='協同過程.html'>協同過程</a></li></ul><li class='has-children'><a href='pj3.html'>pj3</a><ul class='dropdown'><li class='has-children'><a href='Detail.html'>Detail</a><ul class='dropdown'><li><a href='Repository.html'>Repository</a><li><a href='CAD.html'>CAD</a><li><a href='Lua.html'>Lua</a><li><a href='Python.html'>Python</a><li><a href='Models.html'>Models</a><li><a href='Scenes.html'>Scenes</a></li></ul><li><a href='STL.html'>STL</a><li><a href='scoreboard.html'>scoreboard</a></li></ul><li class='has-children'><a href='details.html'>details</a><ul class='dropdown'><li><a href='連線說明.html'>連線說明</a><li class='has-children'><a href='記分板製作.html'>記分板製作</a><ul class='dropdown'><li><a href='程式.html'>程式</a></li></ul><li><a href='記分板導入coppeliasim詳細過程.html'>記分板導入coppeliasim詳細過程</a><li><a href='球員倒地翻身.html'>球員倒地翻身</a><li><a href='球員程式.html'>球員程式</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='jitsi.html'>jitsi</a><ul class='dropdown'><li><a href='協同過程.html'>協同過程</a></li></ul><li class='has-children'><a href='pj3.html'>pj3</a><ul class='dropdown'><li class='has-children'><a href='Detail.html'>Detail</a><ul class='dropdown'><li><a href='Repository.html'>Repository</a><li><a href='CAD.html'>CAD</a><li><a href='Lua.html'>Lua</a><li><a href='Python.html'>Python</a><li><a href='Models.html'>Models</a><li><a href='Scenes.html'>Scenes</a></li></ul><li><a href='STL.html'>STL</a><li><a href='scoreboard.html'>scoreboard</a></li></ul><li class='has-children'><a href='details.html'>details</a><ul class='dropdown'><li><a href='連線說明.html'>連線說明</a><li class='has-children'><a href='機械記分板製作.html'>機械記分板製作</a><ul class='dropdown'><li><a href='程式.html'>程式</a></li></ul><li><a href='記分板導入coppeliasim詳細過程.html'>記分板導入coppeliasim詳細過程</a><li><a href='球員倒地翻身.html'>球員倒地翻身</a><li><a href='球員程式.html'>球員程式</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">記分板製作 << <a href='記分板製作.html'>Previous</a> <a href='記分板導入coppeliasim詳細過程.html'>Next</a> >> 記分板導入coppeliasim詳細過程<br /><h1>程式</h1>
+    <div id="tipue_search_content">機械記分板製作 << <a href='機械記分板製作.html'>Previous</a> <a href='記分板導入coppeliasim詳細過程.html'>Next</a> >> 記分板導入coppeliasim詳細過程<br /><h1>程式</h1>
 <p>原記分板程式:</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
     score1_1 = 0
@@ -197,55 +197,29 @@ end</pre>
 <p><span>其實可以直接從第二個for迴圈開始然後i改成x(因為這函式是從程式裡改出來的)</span></p>
 <p><span>這個函式的重點是二維陣列配合if來判斷哪個部分需要亮哪個地方需要暗,然後用for迴圈執行七次將一個數字七個部位都上色</span></p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
-    sensor1 = sim.getObject('/sensor1') --獲取sensor1的句柄
-    sensor2 = sim.getObject('/sensor2') --獲取sensor2的句柄
-    result1=sim.readProximitySensor(sensor1) --讀取接近傳感器的值，若有接觸返回值為一正數值
+    sensor1 = sim.getObject('/sensor1')
+    sensor2 = sim.getObject('/sensor2')
+    result1=sim.readProximitySensor(sensor1)
     result2=sim.readProximitySensor(sensor2)
+    --if (result1&gt;0)then
 
-    
-    if(score1_1&lt;10)then --分數小於十
-        if(result1&gt;0)then --感測器返回值大於零執行
-            score1_2 = score1_1+1
-            if(score1_2==10 and score1_3&lt;9)then
-                score1_2=0 --等於十歸零
-                score1_4=score1_3+1
-            end
-            local ball = sim.getObject('/Sphere')
-            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable) --將物件的detectable關閉
-            score(score1_4,'a')
-            score(score1_2,'b')
-            score1_1=score1_2
-            score1_3=score1_4
-        end
-    else
-        sim.pauseSimulation() --暫停
+
+    if (result1&gt;0)then
+        a3=a2+36*math.pi/180
+        sim.setJointTargetPosition(a1,a3)
+        a2=a3
+    elseif (result2&gt;0)then
+        b3=b2+36*math.pi/180
+        sim.setJointTargetPosition(b1,b3)
+        b2=b3
+ 
     end
-    if(score2_1&lt;10)then
-        if(result2&gt;0)then
-            score2_2 = score2_1+1
-            if(score2_2==10 and score2_3&lt;9)then
-                score2_2=0
-                score2_4=score2_3+1
-            end
-            local ball = sim.getObject('/Sphere')
-            sim.setObjectSpecialProperty(ball, sim.modelproperty_not_detectable)
-            score(score2_4,'c')
-            score(score2_2,'d')
-            score2_1=score2_2
-            score2_3=score2_4
-        end
-    else
-        sim.pauseSimulation()
-    end
-    p=sim.getSimulationState()
-    if(p==22)then --若模擬停止則將記分板數字歸零
-        score(0,'a')
-        score(0,'b')
-        score(0,'c')
-        score(0,'d')
-    end
+        
+
 end</pre>
-<p>sysCall_actuation()為會一直重複執行的函式</p><br />記分板製作 << <a href='記分板製作.html'>Previous</a> <a href='記分板導入coppeliasim詳細過程.html'>Next</a> >> 記分板導入coppeliasim詳細過程</div>
+<p>sysCall_actuation()為會一直重複執行的函式</p>
+<p>判斷sensor1和2是否有感測到東西判斷加分</p>
+<p>加分是採用軸旋轉每一分轉36度</p><br />機械記分板製作 << <a href='機械記分板製作.html'>Previous</a> <a href='記分板導入coppeliasim詳細過程.html'>Next</a> >> 記分板導入coppeliasim詳細過程</div>
         
     <!-- footer -->
       <div class="container">
