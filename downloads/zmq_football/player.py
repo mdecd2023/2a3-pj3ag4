@@ -7,8 +7,8 @@ import math
 
 
 
-client = RemoteAPIClient('localhost', 23000)
-#client = RemoteAPIClient('2001:288:6004:17:2023:cda:4:6', 23000)
+#client = RemoteAPIClient('localhost', 23000)
+client = RemoteAPIClient('2001:288:6004:17:2023:cda:4:6', 23000)
 
 print('Program started')
 sim = client.getObject('sim')
@@ -58,14 +58,14 @@ def controlangel(y):
         setangel(0)
 def turnover():
     floor= sim.getObject('/Floor')
-    player = sim.getObject('/a_player1')
-    a=sim.getObjectOrientation(player,floor)
-    b=sim.getObjectPosition(player,floor)
+    player1 = sim.getObject(player)
+    a=sim.getObjectOrientation(player1,floor)
+    b=sim.getObjectPosition(player1,floor)
     a[0]=0
     a[1]=0
     b[2]=b[2]+0.2
-    sim.setObjectPosition(player,floor,b)
-    sim.setObjectOrientation(player,floor,a)
+    sim.setObjectPosition(player1,floor,b)
+    sim.setObjectOrientation(player1,floor,a)
 def playercontrol(x,y):
     if keyboard.is_pressed('w'):
         setVelocity(x,x,x,x)
