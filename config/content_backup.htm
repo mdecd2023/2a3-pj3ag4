@@ -431,14 +431,21 @@ end</pre>
 <p><br/>sim.setObjectPosition(player,floor,b)<br/>設定球員相對於地板的位置</p>
 <p><br/>sim.setObjectOrientation(player,floor,a)<br/>設定球員相對於地板的方向</p>
 <h2>球員製作及程式</h2>
-<p>球員製作(4102143)</p>
+<p><span style="background-color: #ffff00;"><strong>球員製作</strong>(4102143)</span></p>
 <p>1先繪製主體及左右手的草圖                                 2.填料主體</p>
 <p><img alt="" height="145" src="/images/skin1.jpg" width="274"/><img alt="" height="141" src="/images/skin2.jpg" width="300"/></p>
 <p>3.再來把左右手的溝槽除掉((不一次長出來的原因是因為組長需要左右手單獨一個零件所以有槽比較好定位</p>
 <p><img alt="" height="136" src="/images/skin3.jpg" width="300"/></p>
 <p>4.左手及右手個別單一填料出來</p>
 <p><img alt="" height="133" src="/images/skin4.jpg" width="284"/><img alt="" height="133" src="/images/skin5.jpg" width="283"/></p>
-<p>球員程式製作(4102146)</p>
+<p><strong>球員皮膚導入</strong></p>
+<p>1.擺放好實體後導入皮膚</p>
+<p><img alt="" height="151" src="/images/play4.jpg" width="300"/></p>
+<p>2.一次選取三個檔案開啟就不用對位置了</p>
+<p><strong><img alt="" height="146" src="/images/player1.jpg" width="286"/><img alt="" height="149" src="/images/player2.jpg" width="288"/></strong></p>
+<p><strong>3.</strong>調整大小及大致對上實體後依附在player上</p>
+<p><img alt="" height="152" src="/images/player3.jpg" width="300"/></p>
+<p><span style="background-color: #ffff00;"><strong>球員程式製作</strong>(4102146)</span></p>
 <p>設定球員輪子旋轉</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def setVelocity(lfwV, rfwV,lbwV, rbwV):
     leftMotor1 = sim.getObject(player+'/joint_lf')
