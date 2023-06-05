@@ -7,8 +7,8 @@ import math
 
 
 
-#client = RemoteAPIClient('localhost', 23000)
-client = RemoteAPIClient('2001:288:6004:17:2023:cda:4:6', 23000)
+client = RemoteAPIClient('localhost', 23000)
+#client = RemoteAPIClient('2001:288:6004:17:2023:cda:4:6', 23000)
 
 print('Program started')
 sim = client.getObject('sim')
@@ -63,7 +63,7 @@ def turnover():
     b=sim.getObjectPosition(player1,floor)
     a[0]=0
     a[1]=0
-    b[2]=b[2]+0.2
+    b[2]=0.3
     sim.setObjectPosition(player1,floor,b)
     sim.setObjectOrientation(player1,floor,a)
 def playercontrol(x,y):
