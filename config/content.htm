@@ -4,7 +4,7 @@
 <p></p>
 <p>網頁:<a href="https://mdecd2023.github.io/2a3-pj3ag4/content/index.html">https://mdecd2023.github.io/2a3-pj3ag4/content/index.html</a> </p>
 <p>倉儲:<a href="https://github.com/mdecd2023/2a3-pj3ag4">https://github.com/mdecd2023/2a3-pj3ag4</a> </p>
-<p><a href="/downloads/cd_report.pdf">PDF報告</a></p>
+<p><a href="/downloads/cd_report_win.pdf">PDF報告</a></p>
 <p></p>
 <p><span>41023104</span></p>
 <p><span><a href="http://[2001:288:6004:17:2023:cda:4:1]:23020/">http://[2001:288:6004:17:2023:cda:4:1]:23020/</a> <br/></span></p>
@@ -21,7 +21,8 @@
 <p>41023147</p>
 <p><a href="http://[2001:288:6004:17:2023:cda:4:7]:23020/">http://[2001:288:6004:17:2023:cda:4:7]:23020/</a></p>
 <p>41023148</p>
-<p><a href="http://[2001:288:6004:17:2023:cda:4:8]:23020/">http://[2001:288:6004:17:2023:cda:4:8]:23020/</a></p><h1>jitsi</h1>
+<p><a href="http://[2001:288:6004:17:2023:cda:4:8]:23020/">http://[2001:288:6004:17:2023:cda:4:8]:23020/</a></p>
+<h1>jitsi</h1>
 <h2>協同過程</h2>
 <p>一<strong>.0515協同過程</strong></p>
 <p><strong>    </strong>1.分配PJ3的任務:</p>
@@ -38,7 +39,8 @@
 <p>   3.負責latex的同學要開始更新</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/AnaKvIxGCP0" title="YouTube video player" width="560"></iframe></p>
 <p></p>
-<p>==</p><h1>pj3</h1>
+<p>==</p>
+<h1>pj3</h1>
 <p><span style="background-color: #ffff00;"><strong>pj3目標:</strong></span></p>
 <p><strong>1.場景中的計時器(.ttm)(✅)</strong></p>
 <p><strong>2.添加球員擊球技能、球員倒地再站起(✅)</strong></p>
@@ -103,7 +105,8 @@
 <p><span> <span>◉將17及18點導入</span></span></p>
 <p><span><span> <span>◉將翻身程式按鍵改成空白建</span></span></span></p>
 <p><span> <span>◉刪除a_player1~b_player4.py程式</span></span></p>
-<p></p><h2>Detail</h2>
+<p></p>
+<h2>Detail</h2>
 <p>在執行協同產品設計專案的過程, 透過 Github 倉儲可以有效採分散式版次管理的流程儲存多名組員各自分工所完成的內容.</p>
 <p>然而在執行過程中, 會在不同時段產生不同性質的心得, 若要以內容管理的方式分章節式的架構儲存資料, 則可使用網站分頁的方式記錄.</p>
 <p>若要採關鍵字, 特定主題或日記式的流程紀錄, 則可以使用網誌進行記錄. 由於 cmsimde 內建 Pelican blog 架構, 並且利用 Leo Editor 建立產生網誌的 Markdown 文章檔案. 假如多人共用同一個 .leo 專案檔, 則必須要在 XML 架構中進行多人資料版本的衝突解決, 此舉由於 Leo Editor 標註非常多元且屬性繁多, 因此在解決衝突過程, 非常容易造成無法回復原貌的 .leo 檔案.</p>
@@ -275,7 +278,8 @@ end</pre>
 <p>這是一直執行的程式</p>
 <p>判斷感測器是否有接觸來加分</p>
 <p>加分時去除球的可探測</p>
-<p>分數不能超過99</p><h2>機械記分板製作</h2>
+<p>分數不能超過99</p>
+<h2>機械記分板製作</h2>
 <p>1.齒輪式記分板(<a href="/downloads/gear scoreboard.rar">gear scoreboard</a>) (41023148)</p>
 <p><img alt="" height="281" src="/images/2023-06-02.png" width="500"/></p>
 <p>零件繪製過程</p>
@@ -327,7 +331,8 @@ var winkVideoData01 = {
 <div class="winkVideoPlayOverlayClass"></div>
 </div>
 <p>運動模擬</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="281" src="https://www.youtube.com/embed/wUEjCBWLOLI" title="YouTube video player" width="500"></iframe></p><h3>程式</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="281" src="https://www.youtube.com/embed/wUEjCBWLOLI" title="YouTube video player" width="500"></iframe></p>
+<h3>程式</h3>
 <p>機械記分板程式:</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
     sensor1 = sim.getObject('/sensor1')
@@ -352,7 +357,8 @@ var winkVideoData01 = {
 end</pre>
 <p>sysCall_actuation()為會一直重複執行的函式</p>
 <p>判斷sensor1和2是否有感測到東西判斷加分</p>
-<p>加分是採用軸旋轉每一分轉36度</p><h2>記分板導入coppeliasim詳細過程</h2>
+<p>加分是採用軸旋轉每一分轉36度</p>
+<h2>記分板導入coppeliasim詳細過程</h2>
 <p>41023121李承翰</p>
 <p>首先先導入STL檔</p>
 <p><img alt="" height="280" src="/images/11.png" width="525"/></p>
@@ -411,7 +417,8 @@ end</pre>
 <p></p>
 <p><img alt="" height="657" src="/images/34.png" width="759"/></p>
 <p>之後記得到資料夾有沒有存成功喔</p>
-<p>圖檔:<a href="/downloads/詳細過程講解.ttm">詳細過程講解.ttm</a></p><h2>球員倒地翻身</h2>
+<p>圖檔:<a href="/downloads/詳細過程講解.ttm">詳細過程講解.ttm</a></p>
+<h2>球員倒地翻身</h2>
 <p>添加球員倒地翻身程式(41023134)</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> elif keyboard.is_pressed('e'):
         floor= sim.getObject('/Floor')
