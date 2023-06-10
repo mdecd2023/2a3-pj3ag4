@@ -332,7 +332,11 @@ var winkVideoData01 = {
 </div>
 <p>運動模擬</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="281" src="https://www.youtube.com/embed/wUEjCBWLOLI" title="YouTube video player" width="500"></iframe></p>
-<h3>程式</h3>
+<p>草圖講解</p>
+<p><img alt="" height="281" src="/images/2023-06-10 (2).png" width="500"/></p>
+<p>單位：mm,齒頂圓ø100，齒底圓ø79，節圓ø90，因齒數20，故齒間角為360/20等於18，間歇傳動用齒輪留2齒，18＊2＝36，正好是十邊形轉動一圈的角度，模數為90/20＝4.5。</p>
+<p><img alt="" height="281" src="/images/2023-06-10.png" width="500"/></p>
+<p>惰輪的配合需保持模數一致，故36/8＝4.5，且惰輪只影響轉向。在草圖上繪製齒形，以防傳動時產生干涉。</p><h3>程式</h3>
 <p>機械記分板程式:</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_actuation()
     sensor1 = sim.getObject('/sensor1')
