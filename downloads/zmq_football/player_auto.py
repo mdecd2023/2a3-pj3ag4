@@ -65,16 +65,16 @@ def controlangel(y,a,f):
         setangel(y)
     else:
         setangel(0)
-def turnover():
-    floor= sim.getObject('/Floor')
-    player1 = sim.getObject(player)
-    a=sim.getObjectOrientation(player1,floor)
-    b=sim.getObjectPosition(player1,floor)
-    a[0]=0
-    a[1]=0
-    b[2]=0.3
-    sim.setObjectPosition(player1,floor,b)
-    sim.setObjectOrientation(player1,floor,a)
+#def turnover():
+    #floor= sim.getObject('/Floor')
+    #player1 = sim.getObject(player)
+    #a=sim.getObjectOrientation(player1,floor)
+    #b=sim.getObjectPosition(player1,floor)
+    #a[0]=0
+    #a[1]=0
+    #b[2]=0.3
+    #sim.setObjectPosition(player1,floor,b)
+    #sim.setObjectOrientation(player1,floor,a)
 def xx(fs,fc):
     if int(fs*10)==int(fc*10) and int(fs*10)>0 :
         f= fs
@@ -88,13 +88,7 @@ def xx(fs,fc):
     elif int(fs*10)==int(fc*-10) and int(fs*10)>0 :
         f=math.pi+fc
         return f
-def yy(a):
-    if a>=0:
-        aa=a
-        return aa
-    elif a<=0:
-        aa= 2*math.pi+a
-        return aa
+
     
 def playercontrol(x,y):
     floor= sim.getObject('/Floor')
@@ -110,38 +104,37 @@ def playercontrol(x,y):
     e=(d[0]**2+d[1]**2)**0.5
     fs=math.asin(d[1]/e)
     fc=math.acos(d[0]/e)
-    #f=0
-    #aa=0
+
     f=xx(fs,fc)
-    aa=yy(a1[2])
-        #if a1[2]>0:
-            #aa=a1[2]
-        #elif a1[2]<0:
-        #    aa= 2*math.pi+a1[2]
+    aa=a1[2]
 
     
     #print(a1[2])
     #print(int(fs*10))
     #print(int(fc*10))
-    print(f-aa)
-    #print(aa)
+    print(f)
+    print(aa)
+    faa=f-aa
+    if faa>2*math.pi:
+        faa=faa-2*math.pi
+    elif faa<0:
+        faa=faa+2*math.pi
+    print(faa)
+
    
-    if f-aa<10*math.pi/180 and f-aa>-10*math.pi/180:
+    if faa<10*math.pi/180 or faa>350*math.pi/180 :
         #print("0")
         setVelocity(x,x,x,x)
         controlangel(y,aa,f)
     #elif keyboard.is_pressed('s'):
         #setVelocity(-x,-x,-x,-x)
         #controlangel(y)
-    elif f-aa<=math.pi and f-aa>10*math.pi/180:
+    elif faa<=math.pi and faa>10*math.pi/180 :
         setVelocity(-x,x,-x,x)
-    elif f-aa>=-math.pi and f-aa<-10*math.pi/180:
+    elif faa>= math.pi and faa<350*math.pi/180 :
         setVelocity(x,-x,x,-x)
-    elif keyboard.is_pressed('space'):
-        turnover()
-    elif keyboard.is_pressed('q'):
-        # stop simulation
-        sim.stopSimulation()
+    #elif a1[0]>90*math.pi/180 or a1[0]<-90*math.pi/180 :
+        #turnover()
     else:
         setVelocity(0, 0, 0, 0)
         setangel(0)
