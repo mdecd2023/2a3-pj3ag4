@@ -15,9 +15,11 @@ sim = client.getObject('sim')
 #sim.startSimulation()
 print('Simulation started')
 
-v=8
-a=40
+v=1
+a=15
 d=[0,0,0]
+
+
 
 #選擇控制的球員
 player='/a_player1'
@@ -29,7 +31,13 @@ player='/a_player1'
 #player='/b_player3'
 #player='/b_player4'
 
-
+def existball():
+    try:
+        Sphere= sim.getObject('/Sphere')
+    except Exception as e:
+        #print("Failed to get object: ", e)
+        return 1
+    return 0
 
 def setVelocity(lfwV, rfwV,lbwV, rbwV):
     leftMotor1 = sim.getObject(player+'/joint_lf')
@@ -51,9 +59,9 @@ def setangel(y):
     sim.setObjectOrientation(rightMotor, ontology, angel)
     #輸入一個變數改變前輪方向
 def controlangel(y,a,f):
-    if a[2]<f:
+    if a<f:
         setangel(-y)
-    elif a[2]>f:
+    elif a>f:
         setangel(y)
     else:
         setangel(0)
@@ -67,6 +75,27 @@ def turnover():
     b[2]=0.3
     sim.setObjectPosition(player1,floor,b)
     sim.setObjectOrientation(player1,floor,a)
+def xx(fs,fc):
+    if int(fs*10)==int(fc*10) and int(fs*10)>0 :
+        f= fs
+        return f
+    elif int(fs*10)==int(fc*10) and int(fs*10)<0 :
+        f=math.pi-fc
+        return f
+    elif int(fs*10)==int(fc*-10) and int(fs*10)<0 :
+        f=2*math.pi+fs
+        return f
+    elif int(fs*10)==int(fc*-10) and int(fs*10)>0 :
+        f=math.pi+fc
+        return f
+def yy(a):
+    if a>=0:
+        aa=a
+        return aa
+    elif a<=0:
+        aa= 2*math.pi+a
+        return aa
+    
 def playercontrol(x,y):
     floor= sim.getObject('/Floor')
     ball=sim.getObject('/Sphere')
@@ -77,22 +106,36 @@ def playercontrol(x,y):
     
     d[0]=c[0]-b[0]
     d[1]=c[1]-b[1]
-    print(d)
+    #print(d)
     e=(d[0]**2+d[1]**2)**0.5
-    f=math.asin(d[1]/e)
-    print(a1[2])
-    print(f)
+    fs=math.asin(d[1]/e)
+    fc=math.acos(d[0]/e)
+    #f=0
+    #aa=0
+    f=xx(fs,fc)
+    aa=yy(a1[2])
+        #if a1[2]>0:
+            #aa=a1[2]
+        #elif a1[2]<0:
+        #    aa= 2*math.pi+a1[2]
+
+    
+    #print(a1[2])
+    #print(int(fs*10))
+    #print(int(fc*10))
+    print(f-aa)
+    #print(aa)
    
-    if a1[2]<(f+20*math.pi/180) and (a1[2]>f-20*math.pi/180):
-        print("0")
+    if f-aa<10*math.pi/180 and f-aa>-10*math.pi/180:
+        #print("0")
         setVelocity(x,x,x,x)
-        controlangel(y,a1,f)
-    elif keyboard.is_pressed('s'):
-        setVelocity(-x,-x,-x,-x)
-        controlangel(y)
-    elif keyboard.is_pressed('a'):
+        controlangel(y,aa,f)
+    #elif keyboard.is_pressed('s'):
+        #setVelocity(-x,-x,-x,-x)
+        #controlangel(y)
+    elif f-aa<=math.pi and f-aa>10*math.pi/180:
         setVelocity(-x,x,-x,x)
-    elif keyboard.is_pressed('d'):
+    elif f-aa>=-math.pi and f-aa<-10*math.pi/180:
         setVelocity(x,-x,x,-x)
     elif keyboard.is_pressed('space'):
         turnover()
@@ -103,7 +146,7 @@ def playercontrol(x,y):
         setVelocity(0, 0, 0, 0)
         setangel(0)
   
-while True:
+while existball()==0:
     if keyboard.is_pressed('shift'):
         playercontrol(v+4,a-20)
     else:
