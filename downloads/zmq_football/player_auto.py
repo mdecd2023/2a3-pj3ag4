@@ -12,7 +12,7 @@ client = RemoteAPIClient('localhost', 23000)
 
 print('Program started')
 sim = client.getObject('sim')
-#sim.startSimulation()
+sim.startSimulation()
 print('Simulation started')
 
 v=2
@@ -64,19 +64,22 @@ def controlangel(y,angle):
     else:
         setangel(0)
 
-def xx(fs,fc):
-    if int(fs*10)==int(fc*10) and int(fs*10)>0 :
-        f= fs
-        return f
-    elif int(fs*10)==int(fc*10) and int(fs*10)<0 :
-        f=math.pi-fc
-        return f
-    elif int(fs*10)==int(fc*-10) and int(fs*10)<0 :
-        f=2*math.pi+fs
-        return f
-    elif int(fs*10)==int(fc*-10) and int(fs*10)>0 :
-        f=math.pi+fc
-        return f
+#def xx(fs,fc):
+   # f=0
+    #if int(fs*10)==int(fc*10) and int(fs*10)>0 :
+        #f= fs
+        #return f
+    #elif int(fs*10)==int(fc*10) and int(fs*10)<0 :
+        #f=math.pi-fc
+        #return f
+    #elif int(fs*10)==int(fc*-10) and int(fs*10)<0 :
+       # f=2*math.pi+fs
+        #return f
+    #elif int(fs*10)==int(fc*-10) and int(fs*10)>0 :
+        #f=math.pi+fc
+        #return f
+    #else:
+        #return f
 #object1的坐標軸上object2所在的角度相對於object1本身的角度
 def getangle(object1,object2):
     floor= sim.getObject('/Floor')
@@ -87,10 +90,10 @@ def getangle(object1,object2):
     rp[1]=position2[1]-position1[1]
     #print(d)
     d=(rp[0]**2+rp[1]**2)**0.5
-    asin=math.asin(rp[1]/d)
-    acos=math.acos(rp[0]/d)
-    ra=xx(asin,acos)
-    ra_o1=ra-orientation1[2]
+
+    atan=math.atan2(rp[1],rp[0])
+ 
+    ra_o1=atan-orientation1[2]
     if ra_o1>2*math.pi:
         ra_o1=ra_o1-2*math.pi
         return ra_o1,d
@@ -104,22 +107,37 @@ def getangle(object1,object2):
 def playercontrol(x,y):
     floor= sim.getObject('/Floor')
     ball=sim.getObject('/Sphere')
+    sensor2=sim.getObject('/sensor2')
     player1 = sim.getObject(player)
     a1=sim.getObjectOrientation(player1,floor)
 
    
     faa =getangle(player1,ball)[0]
-
-    if faa<10*math.pi/180 or faa>350*math.pi/180 :
-        setVelocity(x,x,x,x)
-        controlangel(y,faa)
-    elif faa<=math.pi and faa>10*math.pi/180 :
-        setVelocity(-x,x,-x,x)
-    elif faa>= math.pi and faa<350*math.pi/180 :
-        setVelocity(x,-x,x,-x)
-    else:
-        setVelocity(0, 0, 0, 0)
-        setangel(0)
+    fdd =getangle(player1,ball)[1]
+    fbb =getangle(player1,sensor2)[0]
+    if fdd>0.15:
+        if faa<10*math.pi/180 or faa>350*math.pi/180 :
+            setVelocity(x,x,x,x)
+            controlangel(y,faa)
+        elif faa<=math.pi and faa>10*math.pi/180 :
+            setVelocity(-x/2,x/2,-x/2,x/2)
+        elif faa>= math.pi and faa<350*math.pi/180 :
+            setVelocity(x/2,-x/2,x/2,-x/2)
+        else:
+            setVelocity(0, 0, 0, 0)
+            setangel(0)
+    elif fdd<=0.15:
+        if fbb<10*math.pi/180 or faa>350*math.pi/180 :
+            setVelocity(x,x,x,x)
+            controlangel(y,fbb)
+        elif fbb<=math.pi and faa>10*math.pi/180 :
+            setVelocity(-x,x,-x,x)
+        elif fbb>= math.pi and faa<350*math.pi/180 :
+            setVelocity(x,-x,x,-x)
+        else:
+            setVelocity(0, 0, 0, 0)
+            setangel(0)
+        
         
   
 while existball()==0:
