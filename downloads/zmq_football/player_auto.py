@@ -15,9 +15,9 @@ sim = client.getObject('sim')
 #sim.startSimulation()
 print('Simulation started')
 
-v=1
-a=15
-d=[0,0,0]
+v=2
+a=10
+rp=[0,0,0]
 
 
 
@@ -58,10 +58,10 @@ def setangel(y):
     sim.setObjectOrientation(leftMotor, ontology, angel)
     sim.setObjectOrientation(rightMotor, ontology, angel)
     #輸入一個變數改變前輪方向
-def controlangel(y,a,f):
-    if a<f:
+def controlangel(y,faa):
+    if faa<10*math.pi/180:
         setangel(-y)
-    elif a>f:
+    elif faa>350*math.pi/180:
         setangel(y)
     else:
         setangel(0)
@@ -88,56 +88,67 @@ def xx(fs,fc):
     elif int(fs*10)==int(fc*-10) and int(fs*10)>0 :
         f=math.pi+fc
         return f
-
+#object1的坐標軸上object2所在的角度相對於object1本身的角度
+def getangle(object1,object2):
+    floor= sim.getObject('/Floor')
+    
+    orientation1=sim.getObjectOrientation(object1,floor)
+    position1=sim.getObjectPosition(object1,floor)
+    position2=sim.getObjectPosition(object2,floor)
+    rp[0]=position2[0]-position1[0]
+    rp[1]=position2[1]-position1[1]
+    #print(d)
+    d=(rp[0]**2+rp[1]**2)**0.5
+    asin=math.asin(rp[1]/d)
+    acos=math.acos(rp[0]/d)
+    ra=xx(asin,acos)
+    return ra
+    
     
 def playercontrol(x,y):
     floor= sim.getObject('/Floor')
     ball=sim.getObject('/Sphere')
     player1 = sim.getObject(player)
     a1=sim.getObjectOrientation(player1,floor)
-    b=sim.getObjectPosition(player1,floor)
-    c=sim.getObjectPosition(ball,floor)
+    #b=sim.getObjectPosition(player1,floor)
+    #c=sim.getObjectPosition(ball,floor)
     
-    d[0]=c[0]-b[0]
-    d[1]=c[1]-b[1]
+    #d[0]=c[0]-b[0]
+    #d[1]=c[1]-b[1]
     #print(d)
-    e=(d[0]**2+d[1]**2)**0.5
-    fs=math.asin(d[1]/e)
-    fc=math.acos(d[0]/e)
+    #e=(d[0]**2+d[1]**2)**0.5
+    #fs=math.asin(d[1]/e)
+    #fc=math.acos(d[0]/e)
 
-    f=xx(fs,fc)
+    #f=xx(fs,fc)
     aa=a1[2]
+    f =getangle(player1,ball)
 
     
     #print(a1[2])
     #print(int(fs*10))
     #print(int(fc*10))
-    print(f)
-    print(aa)
+    #print(f)
+    #print(aa)
     faa=f-aa
     if faa>2*math.pi:
         faa=faa-2*math.pi
     elif faa<0:
         faa=faa+2*math.pi
-    print(faa)
+    #print(faa)
+    #print(e)
 
-   
     if faa<10*math.pi/180 or faa>350*math.pi/180 :
-        #print("0")
         setVelocity(x,x,x,x)
-        controlangel(y,aa,f)
-    #elif keyboard.is_pressed('s'):
-        #setVelocity(-x,-x,-x,-x)
-        #controlangel(y)
+        controlangel(y,faa)
     elif faa<=math.pi and faa>10*math.pi/180 :
         setVelocity(-x,x,-x,x)
     elif faa>= math.pi and faa<350*math.pi/180 :
         setVelocity(x,-x,x,-x)
-    #elif a1[0]>90*math.pi/180 or a1[0]<-90*math.pi/180 :
-        #turnover()
     else:
         setVelocity(0, 0, 0, 0)
         setangel(0)
+        
   
 while existball()==0:
     if keyboard.is_pressed('shift'):
