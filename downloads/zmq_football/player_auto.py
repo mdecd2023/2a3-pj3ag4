@@ -19,8 +19,6 @@ v=2
 a=10
 rp=[0,0,0]
 
-
-
 #選擇控制的球員
 player='/a_player1'
 #player='/a_player2'
@@ -58,23 +56,14 @@ def setangel(y):
     sim.setObjectOrientation(leftMotor, ontology, angel)
     sim.setObjectOrientation(rightMotor, ontology, angel)
     #輸入一個變數改變前輪方向
-def controlangel(y,faa):
-    if faa<10*math.pi/180:
+def controlangel(y,angle):
+    if angle<10*math.pi/180:
         setangel(-y)
-    elif faa>350*math.pi/180:
+    elif angle>350*math.pi/180:
         setangel(y)
     else:
         setangel(0)
-#def turnover():
-    #floor= sim.getObject('/Floor')
-    #player1 = sim.getObject(player)
-    #a=sim.getObjectOrientation(player1,floor)
-    #b=sim.getObjectPosition(player1,floor)
-    #a[0]=0
-    #a[1]=0
-    #b[2]=0.3
-    #sim.setObjectPosition(player1,floor,b)
-    #sim.setObjectOrientation(player1,floor,a)
+
 def xx(fs,fc):
     if int(fs*10)==int(fc*10) and int(fs*10)>0 :
         f= fs
@@ -91,7 +80,6 @@ def xx(fs,fc):
 #object1的坐標軸上object2所在的角度相對於object1本身的角度
 def getangle(object1,object2):
     floor= sim.getObject('/Floor')
-    
     orientation1=sim.getObjectOrientation(object1,floor)
     position1=sim.getObjectPosition(object1,floor)
     position2=sim.getObjectPosition(object2,floor)
@@ -102,7 +90,15 @@ def getangle(object1,object2):
     asin=math.asin(rp[1]/d)
     acos=math.acos(rp[0]/d)
     ra=xx(asin,acos)
-    return ra
+    ra_o1=ra-orientation1[2]
+    if ra_o1>2*math.pi:
+        ra_o1=ra_o1-2*math.pi
+        return ra_o1,d
+    elif ra_o1<0:
+        ra_o1=ra_o1+2*math.pi
+        return ra_o1,d
+    else:
+        return ra_o1,d
     
     
 def playercontrol(x,y):
@@ -110,33 +106,9 @@ def playercontrol(x,y):
     ball=sim.getObject('/Sphere')
     player1 = sim.getObject(player)
     a1=sim.getObjectOrientation(player1,floor)
-    #b=sim.getObjectPosition(player1,floor)
-    #c=sim.getObjectPosition(ball,floor)
-    
-    #d[0]=c[0]-b[0]
-    #d[1]=c[1]-b[1]
-    #print(d)
-    #e=(d[0]**2+d[1]**2)**0.5
-    #fs=math.asin(d[1]/e)
-    #fc=math.acos(d[0]/e)
 
-    #f=xx(fs,fc)
-    aa=a1[2]
-    f =getangle(player1,ball)
-
-    
-    #print(a1[2])
-    #print(int(fs*10))
-    #print(int(fc*10))
-    #print(f)
-    #print(aa)
-    faa=f-aa
-    if faa>2*math.pi:
-        faa=faa-2*math.pi
-    elif faa<0:
-        faa=faa+2*math.pi
-    #print(faa)
-    #print(e)
+   
+    faa =getangle(player1,ball)[0]
 
     if faa<10*math.pi/180 or faa>350*math.pi/180 :
         setVelocity(x,x,x,x)
@@ -151,7 +123,4 @@ def playercontrol(x,y):
         
   
 while existball()==0:
-    if keyboard.is_pressed('shift'):
-        playercontrol(v+4,a-20)
-    else:
-        playercontrol(v,a)
+    playercontrol(v,a)
