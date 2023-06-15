@@ -20,14 +20,14 @@ a=10
 rp=[0,0,0]
 
 #選擇控制的球員
-player1='/a_player1'
-player2='/a_player2'
-player3='/a_player3'
-player4='/a_player4'
-player5='/b_player1'
-player6='/b_player2'
-player7='/b_player3'
-player8='/b_player4'
+player='/a_player1'
+#player='/a_player2'
+#player='/a_player3'
+#player='/a_player4'
+#player='/b_player1'
+#player='/b_player2'
+#player='/b_player3'
+#player='/b_player4'
 
 def existball():
     try:
@@ -37,7 +37,7 @@ def existball():
         return 1
     return 0
 
-def setVelocity(lfwV, rfwV,lbwV, rbwV,player):
+def setVelocity(lfwV, rfwV,lbwV, rbwV):
     leftMotor1 = sim.getObject(player+'/joint_lf')
     rightMotor1 = sim.getObject(player+'/joint_rf')
     leftMotor2 = sim.getObject(player+'/joint_lb')
@@ -48,7 +48,7 @@ def setVelocity(lfwV, rfwV,lbwV, rbwV,player):
     sim.setJointTargetVelocity(rightMotor2, rbwV)
     #輸入四個變數分別給四個軸速度
     
-def setangel(y,player):
+def setangel(y):
     ontology= sim.getObject(player)
     angel = [-90*math.pi/180, y*math.pi/180, 0*math.pi/180]
     leftMotor = sim.getObject(player+'/joint_lf')
@@ -57,30 +57,15 @@ def setangel(y,player):
     sim.setObjectOrientation(rightMotor, ontology, angel)
     #輸入一個變數改變前輪方向
     
-def controlangel(y,angle,player):
+def controlangel(y,angle):
     if angle<10*math.pi/180:
-        setangel(-y,player)
+        setangel(-y)
     elif angle>350*math.pi/180:
-        setangel(y,player)
+        setangel(y)
     else:
-        setangel(0,player)
+        setangel(0)
 
-#def xx(fs,fc):
-   # f=0
-    #if int(fs*10)==int(fc*10) and int(fs*10)>0 :
-        #f= fs
-        #return f
-    #elif int(fs*10)==int(fc*10) and int(fs*10)<0 :
-        #f=math.pi-fc
-        #return f
-    #elif int(fs*10)==int(fc*-10) and int(fs*10)<0 :
-       # f=2*math.pi+fs
-        #return f
-    #elif int(fs*10)==int(fc*-10) and int(fs*10)>0 :
-        #f=math.pi+fc
-        #return f
-    #else:
-        #return f
+
 #object1的坐標軸上object2所在的角度相對於object1本身的角度
 def getangle(object1,object2):
     floor= sim.getObject('/Floor')
@@ -104,43 +89,35 @@ def getangle(object1,object2):
     else:
         return ra_o1,d
     
-def trackobject(x,y,f,player):
+def trackobject(x,y,f):
     if f<10*math.pi/180 or f>350*math.pi/180 :
-        setVelocity(x,x,x,x,player)
-        controlangel(y,f,player)
+        setVelocity(x,x,x,x)
+        controlangel(y,f)
     elif f<=math.pi and f>10*math.pi/180 :
-        setVelocity(-x/2,x/2,-x/2,x/2,player)
+        setVelocity(-x/2,x/2,-x/2,x/2)
     elif f>= math.pi and f<350*math.pi/180 :
-        setVelocity(x/2,-x/2,x/2,-x/2,player)
+        setVelocity(x/2,-x/2,x/2,-x/2)
     else:
-        setVelocity(0, 0, 0, 0,player)
-        setangel(0,player)
+        setVelocity(0, 0, 0, 0)
+        setangel(0)
     
-def playercontrol(x,y,player):
+def playercontrol(x,y):
     floor= sim.getObject('/Floor')
     ball=sim.getObject('/Sphere')
     sensor2=sim.getObject('/sensor2')
     player1 = sim.getObject(player)
- 
-
-   
-    faa =getangle(player1,ball)[0]
-    fdd =getangle(player1,ball)[1]
-    fbb =getangle(player1,sensor2)[0]
-    if fdd>0.15:
-        trackobject(x,y,faa,player)
-    elif fdd<=0.15:
-        trackobject(x,y,fbb,player)
+    
+    ball_a =getangle(player1,ball)[0]
+    ball_d =getangle(player1,ball)[1]
+    sensor_a =getangle(player1,sensor2)[0]
+    if ball_d>0.15:
+        trackobject(x,y,ball_a)
+    elif ball_d<=0.15:
+        trackobject(x,y,sensor_a)
         
         
   
 while existball()==0:
-    playercontrol(v,a,player1)
-    #playercontrol(v,a,player2)
-    #playercontrol(v,a,player3)
-    #playercontrol(v,a,player4)
-    #playercontrol(v,a,player5)
-    #playercontrol(v,a,player6)
-    #playercontrol(v,a,player7)
-    #playercontrol(v,a,player8)
+    playercontrol(v,a)
+ 
     

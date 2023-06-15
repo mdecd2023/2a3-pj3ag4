@@ -37,7 +37,7 @@ while True:
 
     ball = sim.getObject('/Sphere')
     ball_position =sim.getObjectPosition(ball,-1)
-    if ball_position[1]<-1.865 or ball_position[1]>1.865:
+    if ball_position[1]<-1.860 or ball_position[1]>1.860:
  
         avoid(random.uniform(-1,1),random.uniform(-1,1))
         sim.setObjectSpecialProperty(ball, sim.objectspecialproperty_detectable)
